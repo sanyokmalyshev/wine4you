@@ -1,0 +1,59 @@
+@import "scss/variables";
+
+.Footer {
+  width: 100%;
+  height: 225px;
+  background-color: $headerBackground;
+  padding: 24px 0;
+
+  &__logo {
+    margin-bottom: 24px;
+  }
+
+  &__contactsTitle {
+    font-weight: 500;
+    font-size: 25px;
+    line-height: 37px;
+    margin-bottom: 8px;
+  }
+
+  &__contactsData {
+    line-height: 24px;
+    font-weight: 400;
+    margin-bottom: 8px;
+    display: inline-block;
+  }
+
+  &__more {
+    margin-bottom: 22px;
+  }
+
+  &__media {
+    margin-bottom: 25px;
+    text-align: center;
+  }
+
+  &__icons {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  &__icon {
+    position: relative;
+    width: 20px;
+    height: 20px;
+    transition: 200ms ease-in;
+    &--inst {
+      background-image: url('../../imgs/insta.svg');
+    }
+    &--lnkdn {
+      background-image: url('../../imgs/linkdn.svg');
+    }
+    &--fb {
+      background-image: url('../../imgs/fb.svg');
+    }
+    &:hover {
+      transform: scale(1.2);
+    }
+  }
+}

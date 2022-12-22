@@ -1,0 +1,18 @@
+@import 'scss/variables';
+
+.Nav {
+  width: 100%;
+  height: 53px;
+  background-color: $backgroundNav;
+
+  &__links {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 53px;
+  }
+
+  &__link {
+    font-size: 25px;
+  }
+}

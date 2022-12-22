@@ -1,0 +1,27 @@
+@import "scss/variables";
+
+.Welcome {
+  &__imgContainer {
+    width: 500px;
+    height: 500px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    border-radius: 20px;
+  }
+
+  &__title {
+    color: $titleColor;
+    font-size: 45px;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    font-size: 25px;
+    font-weight: 500;
+    line-height: 37px;
+    margin-bottom: 40px;
+  }
+}
