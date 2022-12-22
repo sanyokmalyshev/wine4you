@@ -2,6 +2,7 @@ import './Header.scss';
 import 'scss/blocks/container.scss';
 import 'scss/blocks/logo.scss';
 import 'scss/blocks/grid.scss';
+import { Link } from 'react-router-dom';
 // import { createRef } from 'react';
 
 const Header = () => {
@@ -15,9 +16,9 @@ const Header = () => {
     <header className="Header page__header">
       <div className="container grid">
         <h1 className="logo grid__item--1-2">
-          <a href="/" className="logo__link">
+          <Link to="/" className="logo__link">
             Wine4you
-          </a>
+          </Link>
         </h1>
         {/* <div className="Header__search grid__item--3-5">
           <i 
@@ -32,8 +33,8 @@ const Header = () => {
           />
         </div> */}
         <div className="Header__pages grid__item--6-7">
-          <a href="/" className="link">Sommelier</a>
-          <a href="/" className="link">About</a>
+          <Link to="catalogue" className="link">Sommelier</Link>
+          <Link to="about" className="link">About</Link>
         </div>
         <div className="Header__phone grid__item--8-9">
           <a href="tel:+380967994200" className="link">
@@ -44,18 +45,18 @@ const Header = () => {
           </a>
         </div>
         <div className="Header__features grid__item--10-12">
-          <a href="/" className="link Header__iconLink">
+          <Link to="favorites" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--favorites"></i>
             Favorites
-          </a>
-          <a href="/" className="link Header__iconLink">
+          </Link>
+          <Link to="auth" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--person"></i>
             Log In
-          </a>
-          <a href="/" className="link Header__iconLink">
+          </Link>
+          <Link to="cart" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--cart"></i>
             Cart
-          </a>
+          </Link>
         </div>
       </div>
     </header>
