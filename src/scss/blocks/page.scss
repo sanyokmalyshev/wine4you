@@ -1,0 +1,26 @@
+@import "scss/variables";
+
+.page {
+  min-height: calc(100vh - 225px - 116px);
+  &__section {
+    margin-bottom: 150px;
+    margin-top: 150px;
+  }
+
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    line-height: 67px;
+    font-weight: 500;
+    margin-bottom: 56px;
+    color: $titleColor;
+  }
+
+  &__products {
+    margin-bottom: 172px;
+  }
+
+  &__productsList {
+    margin-bottom: 80px;
+  }
+}

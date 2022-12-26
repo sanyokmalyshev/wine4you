@@ -1,0 +1,16 @@
+.ProductsList {
+  &__cards {
+    display: flex;
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__more {
+    display: flex;
+    justify-content: center;
+  }
+
+  &__button {
+    width: 398px;
+  }
+}
