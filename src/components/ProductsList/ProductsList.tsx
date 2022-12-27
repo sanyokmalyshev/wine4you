@@ -1,9 +1,11 @@
 import { ProductCard } from 'components/ProductCard/ProductCard';
 import CardImg from 'imgs/cardImg.png';
+import { Product } from 'types/Product';
 import "./ProductsList.scss";
 
 type Props = {
   title: string;
+  products: Product[];
 }
 
 const cards = [
@@ -29,7 +31,7 @@ const cards = [
   }
 ]
 
-export const ProductsList = ({ title }: Props) => {
+export const ProductsList = ({ title, products }: Props) => {
   return (
     <section className="ProductsList page__products">
       <h1 className="ProductsList__title page__title">

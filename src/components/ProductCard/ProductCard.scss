@@ -3,6 +3,7 @@
 .ProductCard {
   display: flex;
   flex-direction: column;
+  position: relative;
   width: 100%;
   min-height: 446px;
   border-radius: 16px;
@@ -11,6 +12,17 @@
 
   &__img {
     margin-bottom: 32px;
+  }
+
+  &__icon {
+    background-image: url('../../imgs/heart_transparent.svg');
+    top: 20px;
+    right: 20px;
+    transition: 120ms all ease-in-out;
+
+    &--clicked {
+      background-image: url('../../imgs/heart.svg');
+    }
   }
 
   &__title {

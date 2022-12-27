@@ -2,15 +2,12 @@ import './Header.scss';
 import 'scss/blocks/container.scss';
 import 'scss/blocks/logo.scss';
 import 'scss/blocks/grid.scss';
-import { Link } from 'react-router-dom';
-// import { createRef } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import { Search } from 'components/Search/Search';
 
 const Header = () => {
-  // const inputRef = createRef<HTMLInputElement>();
-
-  // const handleClick = () => {
-  //   inputRef.current?.focus();
-  // };
+  const location = useLocation();
+  const currentPath = location.pathname;
 
   return (
     <header className="Header page__header">
@@ -20,18 +17,11 @@ const Header = () => {
             Wine4you
           </Link>
         </h1>
-        {/* <div className="Header__search grid__item--3-5">
-          <i 
-            className="Header__searchIcon icon"
-            onClick={handleClick}
-          ></i>
-          <input 
-            type="text" 
-            className="Header__input"
-            placeholder="Search"
-            ref={inputRef}
-          />
-        </div> */}
+        {(currentPath !== '/'
+        ) && (
+          <Search />
+        )}
+        
         <div className="Header__pages grid__item--6-7">
           <Link to="catalogue" className="link">Sommelier</Link>
           <Link to="about" className="link">About</Link>

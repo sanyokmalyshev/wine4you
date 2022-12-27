@@ -7,32 +7,6 @@
   display: flex;
   align-items: center;
 
-  &__search {
-    position: relative;
-  }
-
-  &__input {
-    width: 100%;
-    height: 40px;
-    background-color: transparent;
-    border: 1px solid $borderColor;
-    border-radius: 8px;
-    outline: none;
-    padding-left: 48px;
-    font-size: 16px;
-    line-height: 16px;
-
-    &::placeholder {
-      color: $placeholderColor;
-    }
-  }
-
-  &__searchIcon {
-    top: 11px;
-    left: 11px;
-    background-image: url('../../imgs/search_icon.svg');
-  }
-
   &__pages {
     display: flex;
     justify-content: space-around;
