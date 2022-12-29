@@ -15,6 +15,7 @@ import { About } from 'pages/About/About';
 import { Favorites } from 'pages/Favorites/Favorites';
 import { Auth } from 'pages/Auth/Auth';
 import { Cart } from 'pages/Cart/Cart';
+import { DetailPage } from 'pages/DetailPage/DetailPage';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -24,7 +25,10 @@ root.render(
     <Routes>
       <Route path="/" element={<App />}>
         <Route index element={<HomePage />} />
-        <Route path="catalogue" element={<Catalogue />} />
+        <Route path="catalogue">
+          <Route index element={<Catalogue />} />
+          <Route path=":productId" element={<DetailPage />} />
+        </Route>
         <Route path="about" element={<About />} />
         <Route path="favorites" element={<Favorites />} />
         <Route path="auth" element={<Auth />} />

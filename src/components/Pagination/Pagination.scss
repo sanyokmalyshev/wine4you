@@ -1,0 +1,27 @@
+@import "scss/variables";
+
+.Pagination {
+  &__pages {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 140px;
+  }
+  &__button {
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 25px;
+    font-family: "Space Grotesk", sans-serif;
+    line-height: 37px;
+    width: 82px;
+    height: 82px;
+    border: 2px solid transparent;
+    border-bottom: 2px solid #000;
+    outline: none;
+    background-color: $bodyBackground;
+
+    &:hover {
+      border-color: #000;
+    }
+  }
+}

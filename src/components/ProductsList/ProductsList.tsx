@@ -1,5 +1,4 @@
 import { ProductCard } from 'components/ProductCard/ProductCard';
-import CardImg from 'imgs/cardImg.png';
 import { Product } from 'types/Product';
 import "./ProductsList.scss";
 
@@ -8,29 +7,6 @@ type Props = {
   products: Product[];
 }
 
-const cards = [
-  {
-    imgSrc: CardImg,
-    title: 'Name of wine 1',
-    price: 150,
-  },
-  {
-    imgSrc: CardImg,
-    title: 'Name of wine 2',
-    price: 150,
-  },
-  {
-    imgSrc: CardImg,
-    title: 'Name of wine 3',
-    price: 150,
-  },
-  {
-    imgSrc: CardImg,
-    title: 'Name of wine 4',
-    price: 150,
-  }
-]
-
 export const ProductsList = ({ title, products }: Props) => {
   return (
     <section className="ProductsList page__products">
@@ -38,7 +14,7 @@ export const ProductsList = ({ title, products }: Props) => {
         {title}
       </h1>
       <div className="ProductsList__cards">
-        {cards.map(card => (
+        {products.map(card => (
           <ProductCard card={card} key={card.title} />
         ))}
       </div>

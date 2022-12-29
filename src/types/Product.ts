@@ -20,6 +20,6 @@ export type Product = {
     nameEvent : string
   },
   capacity : number,
-  images : string[],
+  imageIds : string[],
   description : string
 }

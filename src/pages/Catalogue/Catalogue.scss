@@ -1,9 +1,10 @@
 .Catalogue {
   &__products {
     display: grid;
-    grid-template-columns: repeat(3, minmax(180px, 1fr));
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
     width: 100%;
     gap: 40px 24px;
     margin-bottom: 85px;
+    align-self: start;
   }
 }

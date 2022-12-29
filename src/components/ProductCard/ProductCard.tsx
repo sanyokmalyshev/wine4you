@@ -1,19 +1,22 @@
 import classNames from 'classnames';
 import { useState } from 'react';
-import { Card } from 'types/Card';
 import { Product } from 'types/Product';
 import "./ProductCard.scss";
 
 type Props = {
-  card: Card;
+  card: Product;
 }
 
 export const ProductCard = ({ card }: Props) => {
   const [isFavAdded, setIsFavAdded] = useState(false);
   return (
     <div className="ProductCard">
-      <div className="ProductCard__img">
-        <img src={card.imgSrc} alt="img" />
+      <div className="ProductCard__imgContainer">
+        <img 
+          src={process.env.PUBLIC_URL+"/images/home_img.jpg"}
+          alt="img" 
+          className="ProductCard__img"
+        />
       </div>
       <div className="ProductCard__fav">
         <i 
