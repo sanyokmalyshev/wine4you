@@ -1,11 +1,10 @@
 @import "scss/variables";
 
 .logo {
-  font-size: 35px;
-  line-height: 52px;
-  font-weight: 500;
   &__link {
     text-decoration: none;
+    display: flex;
+    align-items: center;
     color: $logoColor;
   }
 }

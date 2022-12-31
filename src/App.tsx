@@ -14,9 +14,7 @@ function App() {
       <Header />
       {/* <Nav /> */}
       <main className="page">
-        <div className="container">
-          <Outlet />
-        </div>
+        <Outlet />
       </main>
       <Footer />
     </>

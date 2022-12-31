@@ -1,12 +1,17 @@
 @import "scss/variables";
 
 .Search {
-  position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  &__inputWrapper {
+    position: relative;
+  }
 
   &__input {
-    width: 100%;
+    width: 292px;
     height: 40px;
     background-color: transparent;
     border: 1px solid $borderColor;
@@ -23,7 +28,8 @@
   }
 
   &__searchIcon {
-    top: 16px;
+    top: 50%;
+    transform: translateY(-50%);
     left: 11px;
     background-image: url('../../imgs/search_icon.svg');
   }

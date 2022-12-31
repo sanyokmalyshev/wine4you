@@ -6,7 +6,7 @@ import Welcome from "components/Welcome/Welcome"
 import { useEffect, useState } from "react";
 import { Product } from "types/Product";
 import { getPromotionsChampagne, getPromotionsWines } from '../helpers/api';
-import img from "../imgs/home_img.jpg";
+import img from "../imgs/welcome_img.png";
 import { Card } from "types/Card";
 
 // const cards: Card[] = [
@@ -78,33 +78,35 @@ export const HomePage = () => {
   return (
     <>
       <Welcome />
-      {!isLoading && loadingError && (
-        <div className="page__notification">
-          <Error />
-        </div>
-      )}
+      <div className="container">
+        {!isLoading && loadingError && (
+          <div className="page__notification">
+            <Error />
+          </div>
+        )}
 
-      {isLoading && (
-        <div className="page__notification">
-          <Loader />
-        </div>
-      )}
+        {isLoading && (
+          <div className="page__notification">
+            <Loader />
+          </div>
+        )}
 
-      {noError && (
-        <div className="page__products">
-          <ProductsList 
-            title="Explore our most popular wines" 
-            products={ promoWines }
-          />
-          <ProductsList 
-            title="Explore our most popular champagnes" 
-            products={ promoChampagne }
-          />
+        {noError && (
+          <div className="page__products">
+            <ProductsList 
+              title="Explore our most popular wines" 
+              products={ promoWines }
+            />
+            <ProductsList 
+              title="Explore our most popular champagnes" 
+              products={ promoChampagne }
+            />
+          </div>
+        )}
+        
+        <div className="page__contacts">
+          <Contacts />
         </div>
-      )}
-      
-      <div className="page__contacts">
-        <Contacts />
       </div>
     </>
   )

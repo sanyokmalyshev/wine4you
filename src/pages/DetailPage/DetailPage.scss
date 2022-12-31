@@ -93,5 +93,37 @@
     line-height: 24px;
     font-weight: 400;
     margin-top: -10px;
+    margin-bottom: 44px;
+  }
+
+  &__descBlocks {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-bottom: 83px;
+  }
+
+  &__descBlock {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  &__descTitleValue {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__descTitle {
+    font-size: 30px;
+    line-height: 45px;
+    font-weight: 500;
+  }
+
+  &__descValue {
+    font-size: 18px;
+    line-height: 27px;
+    font-weight: 400;
   }
 }

@@ -30,17 +30,22 @@
   &__features {
     display: flex;
     justify-content: space-around;
-    align-items: flex-end;
+    align-items: center;
   }
 
   &__iconLink {
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    justify-content: center;
   }
 
   &__icon {
-    bottom: 120%;
-    left: 50%;
-    transform: translateX(-55%);
+    position: static;
+    // bottom: 120%;
+    // left: 50%;
+    // transform: translateX(-55%);
     &--favorites {
       background-image: url('../../imgs/heart.svg');
     }

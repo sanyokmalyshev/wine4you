@@ -9,17 +9,19 @@ export const Search = () => {
   };
 
   return (
-  <div className="Header__search Search grid__item--3-5">
-    <i 
-      className="Search__searchIcon icon"
-      onClick={handleClick}
-    ></i>
-    <input 
-      type="text" 
-      className="Search__input"
-      placeholder="Search"
-      ref={inputRef}
-    />
+  <div className="Header__search Search grid__item--2-5">
+    <div className="Search__inputWrapper">
+      <i 
+        className="Search__searchIcon icon"
+        onClick={handleClick}
+      ></i>
+      <input 
+        type="text" 
+        className="Search__input"
+        placeholder="Search"
+        ref={inputRef}
+      />
+    </div>
   </div>
   )
 }

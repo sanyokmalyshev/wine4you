@@ -4,6 +4,7 @@ import 'scss/blocks/logo.scss';
 import 'scss/blocks/grid.scss';
 import { Link, useLocation } from 'react-router-dom';
 import { Search } from 'components/Search/Search';
+import logo from 'imgs/logo.svg';
 
 const Header = () => {
   const location = useLocation();
@@ -12,11 +13,11 @@ const Header = () => {
   return (
     <header className="Header page__header">
       <div className="container grid">
-        <h1 className="logo grid__item--1-2">
+        <div className="logo grid__item--1-1">
           <Link to="/" className="logo__link">
-            Wine4you
+            <img src={logo} alt="" />
           </Link>
-        </h1>
+        </div>
         {(currentPath !== '/'
         ) && (
           <Search />

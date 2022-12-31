@@ -54,7 +54,7 @@ export const Filters = () => {
           filterValues={ wineType } 
           title="Wine type" 
           typeInput="radio"
-          nameField="wineType"
+          nameField="wineTypes"
         />
       </div>
       <div className="Filters__filter">

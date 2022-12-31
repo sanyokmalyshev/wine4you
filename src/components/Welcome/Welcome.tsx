@@ -1,11 +1,11 @@
 import './Welcome.scss';
-// import mainImg from 'imgs/home_img.jpg';
+import img from "imgs/welcome_img.png";
 
 function Welcome() {
   return (
     <section className="Welcome page__section grid">
-      <div className="Welcome__imgContainer grid__item--1-6">
-        <img src={process.env.PUBLIC_URL+"/images/home_img.jpg"} alt="Wines"  className="Welcome__img"/>
+      <div className="Welcome__imgContainer grid__item--1-5">
+        <img src={img} alt="Wines" className="Welcome__img"/>
       </div>
       <div className="Welcome__description grid__item--7-12">
         <h1 className="Welcome__title">Welcome!</h1>

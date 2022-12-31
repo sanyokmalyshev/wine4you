@@ -1,13 +1,50 @@
 import classNames from "classnames";
 import { getNumbers } from "helpers/getNumbers";
+import { updateSearch } from "helpers/updateSearch";
+import { useSearchParams } from "react-router-dom";
+import { useEffect } from "react";
 import "./Pagination.scss";
 
 type Props = {
   countPages: number;
+  currentPage: number;
+  // handlePageParams: (page: number) => void;
+  changeCurrentPage: (number: number) => void;
 }
 
-export const Pagination = ({ countPages }: Props) => {
+export const Pagination = ({ 
+  countPages, currentPage, changeCurrentPage
+}: Props) => {
   const numberPages = getNumbers(1, countPages);
+  const [searchParams, setSearchParams] = useSearchParams();
+  const page = searchParams.get('page');
+
+  const handlePageParams = (number: number | null) => {
+    if (number === null) {
+      setSearchParams(
+        updateSearch(searchParams, { page: number }),
+      );
+      changeCurrentPage(1);
+    }
+
+    if (number !== currentPage && number !== null) {
+      setSearchParams(
+        updateSearch(searchParams, { page: number.toString() }),
+      );
+      changeCurrentPage(number);
+    }
+
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  };
+
+  useEffect(() => {
+    if (page) {
+      changeCurrentPage(+page);
+    }
+  }, [page, changeCurrentPage])
 
   return (
     <div className="Pagination">
@@ -17,10 +54,10 @@ export const Pagination = ({ countPages }: Props) => {
             type="button"
             className={classNames(
               'Pagination__button',
-              // { 'button--active': number === currentPage },
+              { 'Pagination__button--active': number === currentPage },
             )}
             key={number}
-            // onClick={() => handlePageParams(number)}
+            onClick={() => handlePageParams(number)}
           >
             {number}
           </button>
