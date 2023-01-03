@@ -71,8 +71,7 @@ export const DetailPage = () => {
         <div className="DetailPage page__detailPage grid">
           <div className="DetailPage__imgContainer grid__item--1-5">
             <img 
-              src={`http://wine4you-env.eba-gvaizune.us-east-1.elasticbeanstalk.com/api/v1/wines/${product?.id}/images/${product?.imageIds[2]}`}  
-              // src={process.env.PUBLIC_URL+"/images/home_img.jpg"}
+              src={`http://wine4you-env.eba-gvaizune.us-east-1.elasticbeanstalk.com/api/v1/wines/${product?.id}/images/${product?.imageIds[1]}`}  
               alt="" 
               className="DetailPage__img"
             />
