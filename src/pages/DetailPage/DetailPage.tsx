@@ -41,18 +41,6 @@ export const DetailPage = () => {
     };
   }, [loadProduct]);
 
-  const changeEventWord = (name: string) => {
-    if (!name) {
-      return '';
-    }
-
-    const result = name.split(' ').map(word => (
-      word[0].toUpperCase() + word.toLowerCase().slice(1)
-    ))
-
-    return result.join('');
-  }
-
   return (
     <div className="container">
       {!isLoading && loadingError && (
@@ -83,8 +71,8 @@ export const DetailPage = () => {
             <div className="DetailPage__perfectFor">
               <p className="DetailPage__perfectTitle">Perfect for:</p>
               <div className="DetailPage__buttons">
-                <Link to={`/catalogue?eventName=${changeEventWord(product?.eventName || '')}`} className="button DetailPage__button">
-                  {changeEventWord(product?.eventName || '')}
+                <Link to={`/catalogue?eventName=${product?.eventName || ''}`} className="button DetailPage__button">
+                  {product?.eventName || ''}
                 </Link>
               </div>
             </div>
