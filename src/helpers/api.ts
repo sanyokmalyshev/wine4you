@@ -18,3 +18,8 @@ export async function getWines(): Promise<Product[]> {
   return axios.get(API_URL + 'wines')
     .then(response => response.data)
 }
+
+export async function getWine(id: number): Promise<Product> {
+  return axios.get(API_URL + 'wines/' + id)
+    .then(response => response.data)
+}

@@ -18,7 +18,7 @@ const Header = () => {
             <img src={logo} alt="" />
           </Link>
         </div>
-        {(currentPath !== '/'
+        {(currentPath === '/catalogue'
         ) && (
           <Search />
         )}
@@ -42,7 +42,7 @@ const Header = () => {
           </Link>
           <Link to="auth" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--person"></i>
-            Log In
+            Account
           </Link>
           <Link to="cart" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--cart"></i>

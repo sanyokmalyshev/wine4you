@@ -1,5 +1,6 @@
 import './Welcome.scss';
 import img from "imgs/welcome_img.png";
+import { Link } from 'react-router-dom';
 
 function Welcome() {
   return (
@@ -15,9 +16,9 @@ function Welcome() {
           I'm here to help you to find the most perfect wine for any occasion in your life.
         </p>
         <div className="grid">
-          <button type="button" className="button grid__item--1-8">
+          <Link to="catalogue" className="button grid__item--1-8">
             Show me more items
-          </button>
+          </Link>
         </div>
       </div>
     </section>

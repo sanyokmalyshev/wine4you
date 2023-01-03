@@ -1,84 +1,83 @@
-import { FilterField } from "components/FilterField/FilterField";
+import { CheckboxField } from "components/CheckboxField/CheckboxField";
+import { useMemo } from "react";
+import { NumberField } from "components/NumberField/NumberField";
+import { Product } from "types/Product";
 import "./Filters.scss";
+import { CheckboxFields } from "types/CheckboxFields";
 
-const wineType = [
-  'White',
-  'Red',
-  'Champagne & Sparkling wine',
-  'Rose'
-];
+type Props = {
+  products: Product[];
+}
 
-const wineStyle = [
-  'Dry',
-  'Semy sweet',
-  'Oak',
-  'Brut',
-  'Concentrated',
-  'Elegant',
-  'Intense',
-  'Crisp',
-  'Off-dry',
-  'Fruity'
-];
+export const Filters = ({ products }: Props) => {
 
-const event = [
-  'Birthday',
-  'New Year',
-  'Corporate event',
-  'Party',
-];
+  const allFilterTypes: CheckboxFields = useMemo(() => {
+    const result: CheckboxFields = {
+      wineTypeName: [],
+      wineStyleName: [],
+      eventName: [],
+      wineTasteName: [],
+      country: [],
+    };
 
-const brand = [
-  'Yellow Tail',
-  'Gallo',
-  'Robert Mondavi',
-  'Hardys',
-  'Ed Edmundo',
-];
+    for (const key of Object.keys(result)) {
+      const values = products
+        .map(product => product[key as keyof CheckboxFields]);
+  
+      result[key as keyof CheckboxFields] 
+        = Array.from(new Set(values as string[]));
+    }
 
-const country = [
-  'France',
-  'Italy',
-  'Spain',
-  'Germany',
-  'USA',
-  'Argentina',
-]
+    return result;
+  }, [products]);
 
-export const Filters = () => {
+  // useEffect(() => {
+
+  //   for (const key of Object.keys(allFilters)) {
+  //     const values = products
+  //       .map(product => product[key as keyof CheckboxFields]);
+  
+  //     allFilters[key as keyof CheckboxFields] 
+  //       = Array.from(new Set(values as string[]));
+  //   }
+  // }, [products])
+
+  // const wineStyles = useMemo(() => {
+  //   const result = products
+  //     .map(product => product.wineStyleName);
+  
+  //   return Array.from(new Set(result));
+  // }, [products]);
+
   return (
     <div className="Filters">
       <h4 className="filterTitle Filters__title">Catalogue</h4>
       <div className="Filters__filter">
-        <FilterField 
-          filterValues={ wineType } 
+        <CheckboxField 
+          filterValues={ allFilterTypes.wineTypeName } 
           title="Wine type" 
-          typeInput="radio"
-          nameField="wineTypes"
+          nameField="wineTypeName"
         />
       </div>
       <div className="Filters__filter">
-        <FilterField 
-          filterValues={ wineStyle } 
+        <CheckboxField 
+          filterValues={ allFilterTypes.wineStyleName } 
           title="Wine style"
-          typeInput="radio"
-          nameField="wineStyle" 
+          nameField="wineStyleName" 
         />
       </div>
       <div className="Filters__filter">
-        <FilterField 
-          filterValues={ event } 
+        <CheckboxField 
+          filterValues={ allFilterTypes.eventName } 
           title="Event"
-          typeInput="checkbox"
-          nameField="event" 
+          nameField="eventName" 
         />
       </div>
       <div className="Filters__filter">
-        <FilterField 
-          filterValues={ brand } 
-          title="Brand"
-          typeInput="checkbox"
-          nameField="event" 
+        <CheckboxField 
+          filterValues={ allFilterTypes.wineTasteName } 
+          title="Wine Taste"
+          nameField="wineTasteName" 
         />
       </div>
       <div className="Filters__filter">
@@ -86,25 +85,20 @@ export const Filters = () => {
           Price
         </h4>
         <div className="Filters__inputsPrice">
-          <div className="Filters__price">
-            <fieldset className="Filters__fieldset">
-              <legend>Min</legend>
-              <input type="number" className="Filters__searchPrice"/>
-            </fieldset>
-          </div>
-          <div className="Filters__price">
-            <fieldset className="Filters__fieldset">
-              <legend>Max</legend>
-              <input type="number" className="Filters__searchPrice"/>
-            </fieldset>
-          </div>
+          <NumberField 
+            title="Min"
+            nameField="min"
+          />
+          <NumberField 
+            title="Max"
+            nameField="max"
+          />
         </div>
       </div>
       <div className="Filters__filter">
-        <FilterField 
-          filterValues={ country } 
+        <CheckboxField 
+          filterValues={ allFilterTypes.country } 
           title="Country"
-          typeInput="checkbox"
           nameField="country" 
         />
       </div>

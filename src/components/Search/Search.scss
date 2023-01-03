@@ -31,6 +31,24 @@
     top: 50%;
     transform: translateY(-50%);
     left: 11px;
+    transition: transform 0.2s cubic-bezier(0.25,0.72,0.51,0.96);
     background-image: url('../../imgs/search_icon.svg');
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  &__deleteIcon {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.2s cubic-bezier(0.25,0.72,0.51,0.96);
+    cursor: pointer;
+    background-image: url("../../imgs/Close.svg");
+
+    &:hover {
+      transform: translateY(-50%) scale(1.5);
+    }
   }
 }

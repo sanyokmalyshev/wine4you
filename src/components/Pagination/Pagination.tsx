@@ -8,7 +8,6 @@ import "./Pagination.scss";
 type Props = {
   countPages: number;
   currentPage: number;
-  // handlePageParams: (page: number) => void;
   changeCurrentPage: (number: number) => void;
 }
 

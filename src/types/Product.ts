@@ -6,19 +6,10 @@ export type Product = {
   title : string,
   inStock : boolean,
   name : string,
-  wineStyle : {
-    id : number,
-    nameStyle : string
-  },
-  wineType : string,
-  wineTaste : {
-    id : number,
-    nameTaste : string
-  },
-  event : {
-    id : number,
-    nameEvent : string
-  },
+  wineStyleName: string,
+  wineTypeName: string,
+  wineTasteName: string,
+  eventName: string,
   capacity : number,
   imageIds : string[],
   description : string

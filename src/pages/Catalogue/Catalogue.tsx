@@ -8,58 +8,17 @@ import { Product } from "types/Product";
 import { Error } from "components/Error/Error";
 import { Loader } from "components/Loader/Loader";
 import { Pagination } from "components/Pagination/Pagination";
-import img from "imgs/products/champagne/1/min.jpg";
-import { Card } from "types/Card";
 import { useSearchParams } from "react-router-dom";
 import { NoResults } from "components/NoResults/NoResults";
+import { CheckboxFields } from "types/CheckboxFields";
 
-// const cards: Card[] = [
-//   {
-//     imgSrc: img,
-//     title: 'Name of wine1',
-//     price: 100,
-//   },
-//   {
-//     imgSrc: img,
-//     title: 'Name of wine2',
-//     price: 100,
-//   },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine3',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-  // {
-  //   imgSrc: img,
-  //   title: 'Name of wine4',
-  //   price: 100,
-  // },
-// ]
+enum StringFilters {
+  wineStyleName = "wineStyleName",
+  wineTypeName = "wineTypeName",
+  wineTasteName = "wineTasteName",
+  country = "country",
+  eventName = "eventName",
+}
 
 export const Catalogue = () => {
 
@@ -71,22 +30,20 @@ export const Catalogue = () => {
   const [searchParams] = useSearchParams();
 
   const page = searchParams.get('page');
-  const wineTypes = searchParams.getAll('wineTypes').map(param => (
-    param.split(' ')[0].toUpperCase()
-  ));
+  const query = searchParams.get('query');
+  
+
+  const min = searchParams.get('min') || '';
+  const max = searchParams.get('max') || '';
 
   const [currentPage, changeCurrentPage] = useState(page ? +page : 1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 12;
 
   async function loadProducts() {
     try {
       setLoadingError(false);
       const responseWines = await getWines();
-      
-      // for (let i = 0; i < responseWines.length; i++) {
-      //   responseWines[i].images
-      //     .push(process.env.PUBLIC_URL + '/images/products/redwine/' + (i + 1) + '/min.jpg');
-      // }
+
       console.log(responseWines);
       
       setWines(responseWines);
@@ -100,6 +57,9 @@ export const Catalogue = () => {
 
   useEffect(() => {
     const abortController = new AbortController();
+    window.scrollTo({
+      top: 0,
+    });
 
     loadProducts();
     
@@ -108,24 +68,74 @@ export const Catalogue = () => {
     };
   }, []);
 
+  const allFilters: CheckboxFields = useMemo(() => {
+    const wineTypeName = searchParams.getAll('wineTypeName') || [];
+    const wineStyleName = searchParams.getAll('wineStyleName') || [];
+    const wineTasteName = searchParams.getAll('wineTasteName') || [];
+    const eventName = searchParams.getAll('eventName') || [];
+    // const brand = searchParams.getAll('brand') || [];
+    const country = searchParams.getAll('country') || [];
+  
+    return (
+      {
+        wineTypeName,
+        wineStyleName,
+        eventName,
+        wineTasteName,
+        country,
+      }
+    )
+  }, [searchParams])
+
 
   const filteredProducts = useMemo(() => {
     let filterProducts = [...wines];
-    
-    if (wineTypes.length) {
+
+    if (query) {
       filterProducts = filterProducts
         .filter(product => {
-          const name = product.wineType.split('_')[0].toUpperCase();
           return (
-            wineTypes.includes(name)
+            product.title.toLowerCase().includes(query.trim().toLowerCase())
           );
         });
     }
+
+    if (min) {
+      filterProducts = filterProducts
+        .filter(product => {
+          return (
+            product.price > +min
+          )
+        })
+    }
+
+    if (max) {
+      filterProducts = filterProducts
+        .filter(product => {
+          return (
+            product.price < +max
+          )
+        })
+    }
+
+    for (const [key, value] of Object.entries(allFilters)) {
+      if (value.length) {
+        
+        filterProducts = filterProducts
+          .filter(product => {
+            const name = product[key as StringFilters];
+      
+            return (
+              allFilters[key as StringFilters].includes(name)
+            );
+          });
+      }
+    }
     
     return filterProducts;
-  }, [wines, wineTypes]);
+  }, [wines, query, min, max, allFilters]);
 
-  const countPages = Math.ceil(filteredProducts.length / 9);
+  const countPages = Math.ceil(filteredProducts.length / itemsPerPage);
 
   const visibleProducts = useMemo(() => {
     let visible: Product[] = [];
@@ -164,7 +174,7 @@ export const Catalogue = () => {
       {noError && (
         <div className="page__catalogue Catalogue grid">
           <section className="Catalogue__filters grid__item--1-2">
-            <Filters />
+            <Filters products={ wines }/>
           </section>
           {filteredProducts.length ? (
             <>
@@ -178,7 +188,6 @@ export const Catalogue = () => {
                   <Pagination 
                     countPages={countPages}
                     currentPage={currentPage}
-                    // handlePageParams={handlePageParams}
                     changeCurrentPage={changeCurrentPage} 
                   />
                 )}

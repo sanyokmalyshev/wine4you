@@ -27,7 +27,7 @@ root.render(
         <Route index element={<HomePage />} />
         <Route path="catalogue">
           <Route index element={<Catalogue />} />
-          <Route path=":productId" element={<DetailPage />} />
+          <Route path=":id" element={<DetailPage />} />
         </Route>
         <Route path="about" element={<About />} />
         <Route path="favorites" element={<Favorites />} />
