@@ -1,17 +1,14 @@
-import classNames from 'classnames';
-import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/Product';
 import "./ProductCard.scss";
 import { AddToCart } from 'components/AddToCart/AddToCart';
+import { FavButton } from 'components/FavButton/FavButton';
 
 type Props = {
   card: Product;
 }
 
 export const ProductCard = ({ card }: Props) => {
-  const [isFavAdded, setIsFavAdded] = useState(false);
-
   return (
     <div className="ProductCard">
       <div className="ProductCard__top">
@@ -25,14 +22,15 @@ export const ProductCard = ({ card }: Props) => {
           />
         </Link>
         <div className="ProductCard__fav">
-          <i 
+          {/* <i 
             className={classNames(
               'ProductCard__icon',
               'icon',
               {'ProductCard__icon--clicked': isFavAdded}
             )}
             onClick={() => setIsFavAdded(!isFavAdded)}
-          ></i>
+          ></i> */}
+          <FavButton card={card} />
         </div>
         <div className="ProductCard__title">
           {card.title}

@@ -26,15 +26,12 @@
     width: 100%;
   }
 
-  &__icon {
-    background-image: url('../../imgs/heart_transparent.svg');
+  &__fav {
+    position: absolute;
     top: 20px;
-    right: 20px;
-    transition: 120ms all ease-in-out;
-
-    &--clicked {
-      background-image: url('../../imgs/heart.svg');
-    }
+    right: 20px;;
+    width: 25px;
+    height: 25px;
   }
 
   &__title {

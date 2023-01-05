@@ -1,6 +1,6 @@
-import classNames from "classnames";
 import { AddToCart } from "components/AddToCart/AddToCart";
 import { Error } from "components/Error/Error";
+import { FavButton } from "components/FavButton/FavButton";
 import { Loader } from "components/Loader/Loader";
 import { getWine } from "helpers/api";
 import { useEffect, useState, useCallback } from "react";
@@ -83,12 +83,17 @@ export const DetailPage = () => {
                   <AddToCart card={product} detailPage />
                 }
               </div>
-              <i 
+              <div className="DetailPage__favButton">
+                {product && 
+                  <FavButton card={product} detailPage />
+                }
+              </div>
+              {/* <i 
                 className={classNames(
                   'DetailPage__icon',
                   'icon'
                 )}
-              ></i>
+              ></i> */}
             </div>
             <div className="DetailPage__line">
             </div>

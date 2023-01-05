@@ -59,12 +59,10 @@
     height: 70px;
   }
 
-  &__icon {
+  &__favButton {
     position: relative;
-    width: 27px;
-    height: 27px;
-    background-image: url('../../imgs/heart_transparent.svg');
-    transform: scale(1.5);
+    width: 35px;
+    height: 35px;
   }
 
   &__line {

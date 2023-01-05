@@ -70,7 +70,7 @@ export const Cart = () => {
   return (
     <div className="Cart">
       <div className="container">
-        <h1 className="page__detailPage Cart__title">
+        <h1 className="page__detailPage title Cart__title">
           Cart
         </h1>
         {cartProducts.length > 0 && (

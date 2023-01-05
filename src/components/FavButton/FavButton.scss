@@ -1,0 +1,23 @@
+.FavButton {
+  &__icon {
+    background-image: url('../../imgs/heart_transparent.svg');
+    transition: 120ms all ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--clicked {
+      background-image: url('../../imgs/heart.svg');
+    }
+
+    &--detail {
+      width: 100%;
+      height: 100%;
+      transform: scale(1.7);
+
+      &:hover {
+        transform: scale(1.9);
+      }
+    }
+  }
+}

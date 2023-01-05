@@ -11,6 +11,7 @@ const Header = () => {
   const location = useLocation();
   const currentPath = location.pathname;
   const cartProducts = useAppSelector((state) => state.cart.products);
+  const favProducts = useAppSelector((state) => state.favorites.products);
 
   return (
     <header className="Header page__header">
@@ -40,7 +41,14 @@ const Header = () => {
         <div className="Header__features grid__item--10-12">
           <Link to="favorites" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--favorites"></i>
-            <span className="Header__countItems Header__countItems--fav">1</span>
+            {favProducts.length > 0 && (
+               <span 
+                className="Header__countItems Header__countItems--fav"
+              >
+                {favProducts.length}
+              </span>
+            )}
+           
             Favorites
           </Link>
           <Link to="auth" className="link Header__iconLink">
