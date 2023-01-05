@@ -1,0 +1,33 @@
+@import "scss/variables";
+
+.addToCart {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-color: $buttonBack;
+
+  &--more {
+    background-color: $headerBackground;
+    margin: 0 auto;
+    &:hover {
+      background-color: $buttonBack;
+      color: $buttonColor;
+    }
+  }
+
+  &--detail {
+    font-size: 25px;
+    line-height: 37px;
+    font-weight: 400;
+  }
+
+  &--added {
+    background-color: $headerBackground;
+    color: $buttonColor;
+
+    &:hover {
+      color: $buttonColor;
+      background-color: $buttonBack;
+    }
+  }
+}

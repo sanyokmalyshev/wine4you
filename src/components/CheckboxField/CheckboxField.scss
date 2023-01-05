@@ -35,13 +35,15 @@
       content: "";
       width: 20px;
       height: 20px;
-      background-color: $logoColor;
+      background-image: url("../../imgs/checked.svg");
+      background-repeat: no-repeat;
+      background-position: center;
       transform: scale(0);
       transition: 120ms transform ease-in-out;
     }
 
     &:checked::before {
-      transform: scale(1);
+      transform: scale(1.2);
     }
 
     &[type="radio"] {

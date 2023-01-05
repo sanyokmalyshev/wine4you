@@ -3,6 +3,7 @@ import 'scss/blocks/link.scss';
 import 'scss/blocks/icon.scss';
 import 'scss/blocks/page.scss';
 import 'scss/blocks/button.scss';
+import 'scss/blocks/addToCart.scss';
 import Header from './components/Header/Header';
 import { Provider } from 'react-redux';
 // import Nav from 'components/Nav/Nav';
@@ -13,14 +14,14 @@ import { store } from 'app/store';
 function App() {
   return (
     <>
-      {/* <Provider store={store}> */}
+      <Provider store={store}>
         <Header />
         {/* <Nav /> */}
         <main className="page">
           <Outlet />
         </main>
         <Footer />
-      {/* </Provider> */}
+      </Provider>
     </>
   );
 }

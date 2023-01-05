@@ -39,13 +39,11 @@
     align-items: center;
     gap: 5px;
     justify-content: center;
+    position: relative;
   }
 
   &__icon {
     position: static;
-    // bottom: 120%;
-    // left: 50%;
-    // transform: translateX(-55%);
     &--favorites {
       background-image: url('../../imgs/heart.svg');
     }
@@ -54,6 +52,19 @@
     }
     &--cart {
       background-image: url('../../imgs/cart.svg');
+    }
+  }
+
+  &__countItems {
+    position: absolute;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    top: -15%;
+    right: -20%;
+
+    &--fav {
+      right: 15%;
     }
   }
 }

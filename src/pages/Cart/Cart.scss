@@ -1,0 +1,152 @@
+@import "scss/variables";
+
+.Cart {
+  font-family: 'Space Grotesk', sans-serif;
+
+  &__title {
+    text-align: center;
+    font-size: 45px;
+    line-height: 67px;
+    font-weight: 300;
+    margin-bottom: 56px;
+  }
+
+  &__products {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 80px;
+  }
+  
+  &__product {
+    width: 100%;
+    min-height: 208px;
+    box-shadow: 2px 2px 24px rgba(0, 0, 0, 0.25);
+    border-radius: 16px;
+    padding-top: 24px;
+    padding-left: 24px;
+    padding-bottom: 20px;
+  }
+
+  &__imgContainer {
+    width: 160px;
+    height: 160px; 
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__desc {
+    margin-top: 8px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__name {
+    font-size: 25px;
+    line-height: 37px;
+    font-weight: 500;
+  }
+
+  &__capacity {
+    font-family: 'Noto Sans', sans-serif;
+    line-height: 24px;
+    font-weight: 400;
+  }
+
+  &__quantity {
+    font-size: 20px;
+    margin-top: 18px;
+    font-weight: 400;
+    line-height: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+  }
+
+  &__number {
+    text-align: center;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+  }
+
+  &__icon {
+    position: static;
+    border: none;
+    background-color: inherit;
+    transition: transform 0.1s cubic-bezier(0.25,0.72,0.51,0.96);
+
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--minus {
+      background-image: url("../../imgs/minus.svg");
+    }
+
+    &--plus {
+      background-image: url("../../imgs/plus.svg");
+    }
+  }
+  
+  &__price {
+    font-size: 30px;
+    font-weight: 500;
+    line-height: 45px; 
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &__delete {
+    height: 50px;
+  }
+
+  &__summContent {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+
+  &__summValues {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__line {
+    border-bottom: 1px solid $line;
+    margin-bottom: 22px;
+  }
+
+  &__totalBlock {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+  }
+
+  &__totalValue {
+    font-size: 35px;
+    font-weight: 400;
+    line-height: 52px;
+  }
+
+  &__buttons {
+    margin-bottom: 80px;
+  }
+
+  &__button {
+    color: $titleColor;
+    background-color: $headerBackground;
+
+    &:hover {
+      background-color: $buttonBack;
+      color: #fff;
+    }
+  }
+}

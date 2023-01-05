@@ -55,23 +55,14 @@
     margin-bottom: 40px;
   }
 
-  &__button {
-    margin: 0 auto;
-    width: 130px;
-    height: 36px;
-    font-size: 19px;
-    font-weight: 500;
-    line-height: 36px;
-    background-color: $buttonBack;
-    margin-bottom: 16px;
+  &__buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
 
-    &--more {
-      background-color: $headerBackground;
-      margin: 0 auto;
-      &:hover {
-        background-color: $buttonBack;
-        color: $buttonColor;
-      }
-    }
+  &__button {
+    width: 180px;
+    height: 36px;
   }
 }

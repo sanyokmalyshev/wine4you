@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Product } from 'types/Product';
 import "./ProductCard.scss";
+import { AddToCart } from 'components/AddToCart/AddToCart';
 
 type Props = {
   card: Product;
@@ -10,6 +11,7 @@ type Props = {
 
 export const ProductCard = ({ card }: Props) => {
   const [isFavAdded, setIsFavAdded] = useState(false);
+
   return (
     <div className="ProductCard">
       <div className="ProductCard__top">
@@ -40,12 +42,16 @@ export const ProductCard = ({ card }: Props) => {
         <div className="ProductCard__price">
           {card.price} ₴
         </div>
-        <button className="ProductCard__button button">
-          Add to cart
-        </button>
-        <Link to={`/catalogue/${card.id}`} className="ProductCard__button ProductCard__button--more button">
-          More info
-        </Link>
+        <div className="ProductCard__buttons">
+          <div className="ProductCard__button">
+            <AddToCart card={card} />
+          </div>
+          <div className="ProductCard__button">
+            <Link to={`/catalogue/${card.id}`} className="addToCart addToCart--more button">
+              More info
+            </Link>
+          </div>
+        </div>
       </div>
     </div>
   )

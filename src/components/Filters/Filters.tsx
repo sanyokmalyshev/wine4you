@@ -31,24 +31,6 @@ export const Filters = ({ products }: Props) => {
     return result;
   }, [products]);
 
-  // useEffect(() => {
-
-  //   for (const key of Object.keys(allFilters)) {
-  //     const values = products
-  //       .map(product => product[key as keyof CheckboxFields]);
-  
-  //     allFilters[key as keyof CheckboxFields] 
-  //       = Array.from(new Set(values as string[]));
-  //   }
-  // }, [products])
-
-  // const wineStyles = useMemo(() => {
-  //   const result = products
-  //     .map(product => product.wineStyleName);
-  
-  //   return Array.from(new Set(result));
-  // }, [products]);
-
   return (
     <div className="Filters">
       <h4 className="filterTitle Filters__title">Catalogue</h4>

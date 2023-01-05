@@ -1,4 +1,5 @@
 import classNames from "classnames";
+import { AddToCart } from "components/AddToCart/AddToCart";
 import { Error } from "components/Error/Error";
 import { Loader } from "components/Loader/Loader";
 import { getWine } from "helpers/api";
@@ -77,9 +78,11 @@ export const DetailPage = () => {
               </div>
             </div>
             <div className="DetailPage__buyButtons">
-              <button className="DetailPage__buyButton button">
-                Buy
-              </button>
+              <div className="DetailPage__buyButton">
+                {product && 
+                  <AddToCart card={product} detailPage />
+                }
+              </div>
               <i 
                 className={classNames(
                   'DetailPage__icon',
