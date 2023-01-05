@@ -1,6 +1,6 @@
 import "./Cart.scss";
 import { useAppDispatch, useAppSelector } from "app/hooks";
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { CartItem } from "types/CartItem";
 import { actions as CartActions } from 'features/cartReducer';
 import { Link } from "react-router-dom";
