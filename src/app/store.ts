@@ -5,9 +5,9 @@ import favReducer from '../features/favReducer';
 export const store = configureStore({
   reducer: {
     cart: cartReducer,
-    favorites: favReducer,
-  },
-})
+    favorites: favReducer
+  }
+});
 
-export type RootState = ReturnType<typeof store.getState>
-export type AppDispatch = typeof store.dispatch
+export type RootState = ReturnType<typeof store.getState>;
+export type AppDispatch = typeof store.dispatch;

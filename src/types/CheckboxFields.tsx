@@ -4,4 +4,4 @@ export type CheckboxFields = {
   eventName: string[],
   wineTasteName: string[],
   country: string[],
-}
+};

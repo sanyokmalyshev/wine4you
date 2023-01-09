@@ -2,7 +2,7 @@ import classNames from 'classnames';
 import { updateSearch } from 'helpers/updateSearch';
 import { createRef } from 'react';
 import { useSearchParams } from 'react-router-dom';
-import "./Search.scss";
+import './Search.scss';
 
 export const Search = () => {
   const inputRef = createRef<HTMLInputElement>();
@@ -17,7 +17,7 @@ export const Search = () => {
     }
 
     setSearchParams(
-      updateSearch(searchParams, { query: null }),
+      updateSearch(searchParams, { query: null })
     );
   };
 
@@ -25,41 +25,41 @@ export const Search = () => {
     const value = e.target.value;
 
     setSearchParams(
-      updateSearch(searchParams, 
-        { 
-          query: value ? value : null,
-          page: "1"
+      updateSearch(searchParams,
+        {
+          query: value || null,
+          page: '1'
         }
-      ),
+      )
     );
   };
 
   return (
-  <div className="Header__search Search grid__item--2-5">
-    <div className="Search__inputWrapper">
-      <i 
-        className="Search__searchIcon icon"
-        onClick={handleClick}
-      ></i>
-      <input 
-        type="text" 
-        className="Search__input"
-        placeholder="Search in catalogue"
-        ref={inputRef}
-        value={query || ''}
-        onChange={handleInput}
-      />
-      <i
-        className={classNames(
-          'icon',
-          { 'Search__deleteIcon': query },
-        )}
-        onClick={handleClick}
-        role="button"
-        tabIndex={0}
-        aria-hidden="true"
-      />
+    <div className='Header__search Search grid__item--2-5'>
+      <div className='Search__inputWrapper'>
+        <i
+          className='Search__searchIcon icon'
+          onClick={handleClick}
+        ></i>
+        <input
+          type='text'
+          className='Search__input'
+          placeholder='Search in catalogue'
+          ref={inputRef}
+          value={query ?? ''}
+          onChange={handleInput}
+        />
+        <i
+          className={classNames(
+            'icon',
+            { Search__deleteIcon: query }
+          )}
+          onClick={handleClick}
+          role='button'
+          tabIndex={0}
+          aria-hidden='true'
+        />
+      </div>
     </div>
-  </div>
-  )
-}
+  );
+};

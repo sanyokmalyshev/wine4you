@@ -1,9 +1,9 @@
-import { useState, useRef, useEffect, useCallback } from "react";
-import useOutsideClick from "helpers/useOutSideClick";
-import "./CustomSelect.scss";
-import { UseFormRegister, UseFormSetValue, UseFormUnregister } from "react-hook-form";
-import { Inputs } from "types/Inputs";
-import classNames from "classnames";
+import { useState, useRef, useEffect, useCallback } from 'react';
+import useOutsideClick from 'helpers/useOutSideClick';
+import './CustomSelect.scss';
+import { UseFormRegister, UseFormSetError, UseFormSetValue, UseFormUnregister } from 'react-hook-form';
+import { Inputs } from 'types/Inputs';
+import classNames from 'classnames';
 
 type Props = {
   options: string[];
@@ -13,7 +13,7 @@ type Props = {
   registerName: string;
   errors: boolean;
   setValue: UseFormSetValue<Inputs>;
-  setError: any;
+  setError: UseFormSetError<Inputs>;
 };
 
 const CustomSelect = ({
@@ -27,7 +27,7 @@ const CustomSelect = ({
   setError
 }: Props) => {
   const [isOpen, setOpen] = useState(false);
-  const [selected, setSelected] = useState("");
+  const [selected, setSelected] = useState('');
   const selectRef = useRef(null);
   const nameRegister = registerName as keyof Inputs;
 
@@ -36,19 +36,20 @@ const CustomSelect = ({
   });
 
   const unreigsterCallback = useCallback(() => {
-    unregister(nameRegister)
+    unregister(nameRegister);
   }, [unregister, nameRegister]);
 
   useEffect(() => {
-    if (!selected) {
+    if (selected === '') {
       setError(nameRegister, { type: 'empty', message: 'empty field' });
     }
+
     setValue(nameRegister, selected, { shouldTouch: true });
-    
+
     return () => {
       unreigsterCallback();
-    }
-  }, [selected, unreigsterCallback, nameRegister, setValue, setError])
+    };
+  }, [selected, unreigsterCallback, nameRegister, setValue, setError]);
 
   return (
     <div>
@@ -57,27 +58,27 @@ const CustomSelect = ({
         onClick={() => {
           setOpen((prev) => !prev);
         }}
-        className="custom-select-wrapper"
+        className='custom-select-wrapper'
       >
-        <div 
+        <div
           {...register(nameRegister, { required: true })}
           className={classNames(
-            "custom-select",
-            {"open": isOpen},
-            {'custom-select__trigger--invalid': errors},
-            {'custom-select__trigger--valid': !errors}
+            'custom-select',
+            { open: isOpen },
+            { 'custom-select__trigger--invalid': errors },
+            { 'custom-select__trigger--valid': !errors }
           )}
-          
+
         >
-          <div className="custom-select__trigger">
+          <div className='custom-select__trigger'>
             <span>
-              {options.find((item) => item === selected) ||
-                selectName}
+              {options.find((item) => item === selected)
+                ?? selectName}
             </span>
-            <div className="arrow"></div>
+            <div className='arrow'></div>
           </div>
-          <div 
-            className="custom-options"
+          <div
+            className='custom-options'
           >
             {options.map((item) => (
               <div
@@ -85,12 +86,13 @@ const CustomSelect = ({
                 onClick={() => {
                   setSelected(item);
                 }}
-                className="option-container"
+                className='option-container'
               >
                 <span
-                  className={`custom-option ${
-                    selected === item && "selected"
-                  } `}
+                  className={classNames(
+                    'custom-option',
+                    { selected: selected === item }
+                  )}
                 >
                   {item}
                 </span>

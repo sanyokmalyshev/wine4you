@@ -25,14 +25,14 @@ const Header = () => {
         ) && (
           <Search />
         )}
-        
+
         <div className="Header__pages grid__item--6-7">
           <Link to="catalogue" className="link">Sommelier</Link>
           <Link to="about" className="link">About</Link>
         </div>
         <div className="Header__phone grid__item--8-9">
           <a href="tel:+380967994200" className="link">
-            <i 
+            <i
               className="Header__phoneIcon icon"
             ></i>
             +380967994200
@@ -42,13 +42,12 @@ const Header = () => {
           <Link to="favorites" className="link Header__iconLink">
             <i className="icon Header__icon Header__icon--favorites"></i>
             {favProducts.length > 0 && (
-               <span 
+              <span
                 className="Header__countItems Header__countItems--fav"
               >
                 {favProducts.length}
               </span>
             )}
-           
             Favorites
           </Link>
           <Link to="auth" className="link Header__iconLink">
@@ -68,6 +67,6 @@ const Header = () => {
       </div>
     </header>
   );
-}
+};
 
 export default Header;

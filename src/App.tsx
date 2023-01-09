@@ -14,10 +14,11 @@ import { Outlet } from 'react-router-dom';
 import { store } from 'app/store';
 import { useEffect } from 'react';
 
-function App() {
+function App () {
   useEffect(() => {
     document.title = 'Wine4you';
   }, []);
+
   return (
     <>
       <Provider store={store}>

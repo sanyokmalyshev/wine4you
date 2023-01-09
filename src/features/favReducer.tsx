@@ -8,8 +8,8 @@ interface favState {
 }
 
 const initialState: favState = {
-  products: JSON.parse(localStorage.getItem('fav') || '[]'),
-}
+  products: JSON.parse(localStorage.getItem('fav') ?? '[]')
+};
 
 export const favSlice = createSlice({
   name: 'fav',
@@ -17,12 +17,12 @@ export const favSlice = createSlice({
   reducers: {
     addProducts: (state, action: PayloadAction<Product[]>) => {
       state.products = action.payload;
-    },
-  },
-})
+    }
+  }
+});
 
 export const { actions } = favSlice;
 
-export const selectCart 
-  = (state: RootState) => state.cart.products;
-export default favSlice.reducer
+export const selectFav
+  = (state: RootState) => state.favorites.products;
+export default favSlice.reducer;

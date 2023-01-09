@@ -1,6 +1,6 @@
 import './Nav.scss';
 
-function Nav() {
+function Nav () {
   return (
     <nav className="App__nav Nav">
       <div className="container Nav__links">

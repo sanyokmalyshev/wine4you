@@ -1,13 +1,14 @@
+// eslint-disable-next-line @typescript-eslint/consistent-indexed-object-style
 export type SearchParams = {
   [key: string]: string | string[] | null,
 };
 
-export function updateSearch(
+export function updateSearch (
   currentParams: URLSearchParams,
-  paramsToUpdate: SearchParams,
+  paramsToUpdate: SearchParams
 ): string {
   const newParams = new URLSearchParams(
-    currentParams.toString(),
+    currentParams.toString()
   );
 
   Object.entries(paramsToUpdate)

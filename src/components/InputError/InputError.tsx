@@ -1,8 +1,8 @@
-import "./InputError.scss";
+import './InputError.scss';
 
 type Props = {
   message: string,
-}
+};
 
 export const InputError = ({ message }: Props) => {
   return (
@@ -10,5 +10,5 @@ export const InputError = ({ message }: Props) => {
       <i className="icon InputError__invalidIcon"></i>
       { message }
     </p>
-  )
-}
+  );
+};

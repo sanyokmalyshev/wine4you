@@ -1,9 +1,8 @@
-import React from 'react';
 import {
   Routes,
   Route,
   Navigate,
-  HashRouter as Router,
+  HashRouter as Router
 } from 'react-router-dom';
 import ReactDOM from 'react-dom/client';
 import './index.scss';
@@ -22,6 +21,7 @@ import { NotFoundPage } from 'components/NotFoundPage/NotFoundPage';
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
+
 root.render(
   <Router>
     <Routes>
@@ -36,14 +36,13 @@ root.render(
         <Route path="favorites" element={<Favorites />} />
         <Route path="auth" element={<Auth />} />
         <Route path="cart" >
-        <Route index element={<Cart />} />
+          <Route index element={<Cart />} />
           <Route path="order" element={<Order />} />
         </Route>
         <Route path="home" element={<Navigate to="/" replace />} />
       </Route>
     </Routes>
   </Router>
-  
 );
 
 reportWebVitals();

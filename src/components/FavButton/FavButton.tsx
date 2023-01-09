@@ -1,14 +1,14 @@
-import { useAppDispatch, useAppSelector } from "app/hooks";
+import { useAppDispatch, useAppSelector } from 'app/hooks';
 import { useState, useCallback, useEffect } from 'react';
-import { Product } from "types/Product";
+import { Product } from 'types/Product';
 import { actions as FavActions } from 'features/favReducer';
-import "./FavButton.scss";
-import classNames from "classnames";
+import './FavButton.scss';
+import classNames from 'classnames';
 
 type Props = {
   card: Product;
   detailPage?: boolean;
-}
+};
 
 export const FavButton = ({ card, detailPage }: Props) => {
   const favorites = useAppSelector((state) => state.favorites.products);
@@ -24,9 +24,9 @@ export const FavButton = ({ card, detailPage }: Props) => {
 
     const isAdded = favorites
       .some((prod: Product) => +prod.id === card.id);
-    
-      setIsAdded(isAdded);
-  }, [card, favorites])
+
+    setIsAdded(isAdded);
+  }, [card, favorites]);
 
   useEffect(() => {
     addedToFav();
@@ -64,18 +64,18 @@ export const FavButton = ({ card, detailPage }: Props) => {
     localStorage.setItem('fav',
       JSON.stringify(newProducts));
 
-      dispatch(FavActions.addProducts(newProducts));
+    dispatch(FavActions.addProducts(newProducts));
   };
 
   return (
-    <i 
+    <i
       className={classNames(
         'FavButton__icon',
         'icon',
-        {'FavButton__icon--clicked': isAdded},
-        {"FavButton__icon--detail": detailPage},
+        { 'FavButton__icon--clicked': isAdded },
+        { 'FavButton__icon--detail': detailPage }
       )}
-      onClick={() => addToFav()}
+      onClick={addToFav}
     ></i>
-  )
-}
+  );
+};

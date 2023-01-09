@@ -9,7 +9,7 @@ export const postalOffices = [
   'Postal office 2, Khreshchatyk 20',
   'Postal office 3, Khreshchatyk 18',
   'Postal office 4, Khreshchatyk 55',
-  'Postal office 5, Khreshchatyk 8',
+  'Postal office 5, Khreshchatyk 8'
 ];
 
 export const shops = [

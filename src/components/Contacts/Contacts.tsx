@@ -1,4 +1,4 @@
-import "./Contacts.scss"
+import './Contacts.scss';
 
 export const Contacts = () => {
   return (
@@ -47,5 +47,5 @@ export const Contacts = () => {
         </div>
       </div>
     </section>
-  )
-}
+  );
+};

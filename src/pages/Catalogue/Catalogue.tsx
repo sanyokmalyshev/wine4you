@@ -1,54 +1,49 @@
-import { Filters } from "components/Filters/Filters";
-import "./Catalogue.scss";
-import "scss/blocks/filterTitle.scss";
-import { ProductCard } from "components/ProductCard/ProductCard";
-import { useEffect, useState, useMemo } from "react";
-import { getWines } from "helpers/api";
-import { Product } from "types/Product";
-import { Error } from "components/Error/Error";
-import { Loader } from "components/Loader/Loader";
-import { Pagination } from "components/Pagination/Pagination";
-import { useSearchParams } from "react-router-dom";
-import { NoResults } from "components/NoResults/NoResults";
-import { CheckboxFields } from "types/CheckboxFields";
+import { Filters } from 'components/Filters/Filters';
+import './Catalogue.scss';
+import 'scss/blocks/filterTitle.scss';
+import { ProductCard } from 'components/ProductCard/ProductCard';
+import { useEffect, useState, useMemo } from 'react';
+import { getWines } from 'helpers/api';
+import { Product } from 'types/Product';
+import { Error } from 'components/Error/Error';
+import { Loader } from 'components/Loader/Loader';
+import { Pagination } from 'components/Pagination/Pagination';
+import { useSearchParams } from 'react-router-dom';
+import { NoResults } from 'components/NoResults/NoResults';
+import { CheckboxFields } from 'types/CheckboxFields';
 
 enum StringFilters {
-  wineStyleName = "wineStyleName",
-  wineTypeName = "wineTypeName",
-  wineTasteName = "wineTasteName",
-  country = "country",
-  eventName = "eventName",
+  wineStyleName = 'wineStyleName',
+  wineTypeName = 'wineTypeName',
+  wineTasteName = 'wineTasteName',
+  country = 'country',
+  eventName = 'eventName',
 }
 
 export const Catalogue = () => {
-
   const [wines, setWines] = useState<Product[]>([]);
   const [isLoading, setIsLoading] = useState(true);
   const [loadingError, setLoadingError] = useState(false);
   const noError = !loadingError && !isLoading;
-  
+
   const [searchParams] = useSearchParams();
 
   const page = searchParams.get('page');
   const query = searchParams.get('query');
-  
 
-  const min = searchParams.get('min') || '';
-  const max = searchParams.get('max') || '';
+  const min = searchParams.get('min') ?? '';
+  const max = searchParams.get('max') ?? '';
 
   const [currentPage, changeCurrentPage] = useState(page ? +page : 1);
   const itemsPerPage = 12;
 
-  async function loadProducts() {
+  async function loadProducts () {
     try {
       setLoadingError(false);
       const responseWines = await getWines();
 
-      console.log(responseWines);
-      
       setWines(responseWines);
     } catch (e) {
-      console.log(e);
       setLoadingError(true);
     }
 
@@ -57,12 +52,13 @@ export const Catalogue = () => {
 
   useEffect(() => {
     const abortController = new AbortController();
+
     window.scrollTo({
-      top: 0,
+      top: 0
     });
 
     loadProducts();
-    
+
     return () => {
       abortController.abort();
     };
@@ -73,20 +69,18 @@ export const Catalogue = () => {
     const wineStyleName = searchParams.getAll('wineStyleName') || [];
     const wineTasteName = searchParams.getAll('wineTasteName') || [];
     const eventName = searchParams.getAll('eventName') || [];
-    // const brand = searchParams.getAll('brand') || [];
     const country = searchParams.getAll('country') || [];
-  
+
     return (
       {
         wineTypeName,
         wineStyleName,
         eventName,
         wineTasteName,
-        country,
+        country
       }
-    )
-  }, [searchParams])
-
+    );
+  }, [searchParams]);
 
   const filteredProducts = useMemo(() => {
     let filterProducts = [...wines];
@@ -105,8 +99,8 @@ export const Catalogue = () => {
         .filter(product => {
           return (
             product.price > +min
-          )
-        })
+          );
+        });
     }
 
     if (max) {
@@ -114,24 +108,23 @@ export const Catalogue = () => {
         .filter(product => {
           return (
             product.price < +max
-          )
-        })
+          );
+        });
     }
 
     for (const [key, value] of Object.entries(allFilters)) {
       if (value.length) {
-        
         filterProducts = filterProducts
           .filter(product => {
             const name = product[key as StringFilters];
-      
+
             return (
               allFilters[key as StringFilters].includes(name)
             );
           });
       }
     }
-    
+
     return filterProducts;
   }, [wines, query, min, max, allFilters]);
 
@@ -139,6 +132,7 @@ export const Catalogue = () => {
 
   const visibleProducts = useMemo(() => {
     let visible: Product[] = [];
+
     if (filteredProducts) {
       visible = [...filteredProducts];
     }
@@ -158,51 +152,50 @@ export const Catalogue = () => {
   }, [countPages, currentPage, filteredProducts]);
 
   return (
-    <div className="container">
+    <div className='container'>
       {!isLoading && loadingError && (
-          <div className="page__notification">
-            <Error />
-          </div>
-        )}
+        <div className='page__notification'>
+          <Error />
+        </div>
+      )}
 
       {isLoading && (
-        <div className="page__notification">
+        <div className='page__notification'>
           <Loader />
         </div>
       )}
 
       {noError && (
-        <div className="page__catalogue Catalogue grid">
-          <section className="Catalogue__filters grid__item--1-2">
+        <div className='page__catalogue Catalogue grid'>
+          <section className='Catalogue__filters grid__item--1-2'>
             <Filters products={ wines }/>
           </section>
-          {filteredProducts.length ? (
+          {filteredProducts.length > 0 && (
             <>
-              <section className="Catalogue__products grid grid__item--4-12">
+              <section className='Catalogue__products grid grid__item--4-12'>
                 {visibleProducts.map(card => (
                   <ProductCard card={card} key={card.title} />
                 ))}
               </section>
-              <div className="Catalogue__pagination grid__item--4-12">
+              <div className='Catalogue__pagination grid__item--4-12'>
                 {filteredProducts.length > itemsPerPage && (
-                  <Pagination 
+                  <Pagination
                     countPages={countPages}
                     currentPage={currentPage}
-                    changeCurrentPage={changeCurrentPage} 
+                    changeCurrentPage={changeCurrentPage}
                   />
                 )}
               </div>
             </>
-          ) : (
-            <div className="grid__item--4-12">
+          )}
+
+          {filteredProducts.length === 0 && (
+            <div className='grid__item--4-12'>
               <NoResults />
             </div>
           )}
-          
-          
         </div>
-        
       )}
     </div>
-  )
-}
+  );
+};

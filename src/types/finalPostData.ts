@@ -1,25 +1,8 @@
+import { CartItem } from './CartItem';
+
 export interface FinalPostData {
   cart: {
-    products: {
-      id: string,
-      quantity: number,
-      product: {
-        id : number,
-        brand : string,
-        country : string,
-        price : number,
-        title : string,
-        inStock : boolean,
-        name : string,
-        wineStyleName: string,
-        wineTypeName: string,
-        wineTasteName: string,
-        eventName: string,
-        capacity : number,
-        imageIds : string[],
-        description : string
-      },
-    }[];
+    products: CartItem[];
     deliveryPrice: number,
     discount: number,
     totalPrice: number,

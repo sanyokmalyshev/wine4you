@@ -1,4 +1,4 @@
-import "./Footer.scss";
+import './Footer.scss';
 
 export const Footer = () => {
   return (
@@ -27,26 +27,26 @@ export const Footer = () => {
         <div className="grid__item--10-12">
           <h3 className="Footer__contactsTitle Footer__media">Our social media</h3>
           <div className="Footer__icons">
-            <a 
-              href="https://www.google.com" 
-              className="Footer__icon" 
-              target="_blank" 
+            <a
+              href="https://www.google.com"
+              className="Footer__icon"
+              target="_blank"
               rel="noreferrer"
             >
               <i className="icon Footer__icon--inst"></i>
             </a>
-            <a 
-              href="https://www.google.com" 
-              className="Footer__icon" 
-              target="_blank" 
+            <a
+              href="https://www.google.com"
+              className="Footer__icon"
+              target="_blank"
               rel="noreferrer"
             >
               <i className="icon Footer__icon--lnkdn"></i>
             </a>
-            <a 
-              href="https://www.google.com" 
-              className="Footer__icon" 
-              target="_blank" 
+            <a
+              href="https://www.google.com"
+              className="Footer__icon"
+              target="_blank"
               rel="noreferrer"
             >
               <i className="icon Footer__icon--fb"></i>
@@ -54,6 +54,6 @@ export const Footer = () => {
           </div>
         </div>
       </div>
-    </footer> 
-  )
-}
+    </footer>
+  );
+};
