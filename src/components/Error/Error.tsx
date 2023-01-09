@@ -1,7 +1,11 @@
 import './Error.scss';
 
-export const Error = () => (
+type Props = {
+  message: string;
+};
+
+export const Error = ({ message }: Props) => (
   <p className="Error">
-    Can&apos;t load products
+    { message }
   </p>
 );

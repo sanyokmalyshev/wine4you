@@ -155,7 +155,7 @@ export const Catalogue = () => {
     <div className='container'>
       {!isLoading && loadingError && (
         <div className='page__notification'>
-          <Error />
+          <Error message='Cant load products'/>
         </div>
       )}
 

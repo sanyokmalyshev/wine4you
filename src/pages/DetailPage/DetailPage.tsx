@@ -47,7 +47,7 @@ export const DetailPage = () => {
     <div className='container'>
       {!isLoading && loadingError && (
         <div className='page__notification'>
-          <Error />
+          <Error message='Cant load product'/>
         </div>
       )}
 

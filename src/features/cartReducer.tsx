@@ -28,6 +28,7 @@ export const cartSlice = createSlice({
       state.products = action.payload;
     },
     clearCart: (state) => {
+      localStorage.removeItem('wines');
       state.products = [];
     },
     addToCart: (state, action: PayloadAction<Product>) => {

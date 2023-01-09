@@ -39,7 +39,7 @@ module.exports = {
     curly: [2, 'all'],
     'no-redeclare': [2, { builtinGlobals: true }],
     'operator-linebreak': [2, 'before'],
-    'no-console': 2,
+    'no-console': 'off',
     'brace-style': [2, '1tbs'],
     'arrow-body-style': 0,
     'arrow-parens': 0,

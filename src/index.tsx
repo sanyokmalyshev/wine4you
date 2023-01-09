@@ -17,6 +17,7 @@ import { Cart } from 'pages/Cart/Cart';
 import { DetailPage } from 'pages/DetailPage/DetailPage';
 import { Order } from 'components/Order/Order';
 import { NotFoundPage } from 'components/NotFoundPage/NotFoundPage';
+import { Success } from 'components/Success/Success';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
@@ -40,6 +41,7 @@ root.render(
           <Route path="order" element={<Order />} />
         </Route>
         <Route path="home" element={<Navigate to="/" replace />} />
+        <Route path="success" element={<Success />} />
       </Route>
     </Routes>
   </Router>
