@@ -1,4 +1,5 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .Footer {
   width: 100%;
@@ -11,15 +12,12 @@
   }
 
   &__contactsTitle {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 37px;
+    @include fz25-lh37-fw500-grotesk;
     margin-bottom: 8px;
   }
 
   &__contactsData {
-    line-height: 24px;
-    font-weight: 400;
+    @include fz16-lh24-fw400;
     margin-bottom: 8px;
     display: inline-block;
   }

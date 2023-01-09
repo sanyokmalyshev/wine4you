@@ -1,4 +1,5 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .CheckboxField {
   &__filterTitle {
@@ -9,49 +10,5 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-  }
-
-  &__label {
-    cursor: pointer;
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 400;
-    display: grid;
-    grid-template-columns: 1em auto;
-    gap: 10px;
-    align-items: center;
-  }
-
-  &__input {
-    cursor: pointer;
-    appearance: none;
-    width: 20px;
-    height: 20px;
-    border: 2px solid $logoColor;
-    display: grid;
-    place-content: center;
-
-    &::before {
-      content: "";
-      width: 20px;
-      height: 20px;
-      background-image: url("../../imgs/checked.svg");
-      background-repeat: no-repeat;
-      background-position: center;
-      transform: scale(0);
-      transition: 120ms transform ease-in-out;
-    }
-
-    &:checked::before {
-      transform: scale(1.2);
-    }
-
-    &[type="radio"] {
-      border-radius: 50%;
-
-      &::before {
-        border-radius: 50%;
-      }
-    }
   }
 }

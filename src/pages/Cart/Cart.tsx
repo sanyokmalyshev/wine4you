@@ -1,74 +1,26 @@
 import "./Cart.scss";
 import { useAppDispatch, useAppSelector } from "app/hooks";
-import { useMemo } from "react";
-import { CartItem } from "types/CartItem";
+import { useEffect, useState } from "react";
 import { actions as CartActions } from 'features/cartReducer';
 import { Link } from "react-router-dom";
+import { ModalWindow } from "components/ModalWindow/ModalWindow";
+import { CartQuantity } from "components/CartQuantity/CartQuantity";
 
 export const Cart = () => {
   const cartProducts = useAppSelector((state) => state.cart.products);
+  const { totalPrice, deliveryPrice, totalAmount } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
-  const deliveryPrice = 50;
+  const [isModalActive, setisModalActive] = useState(false);
   const discount = 0;
 
-  const handleCount = (productId: string, sign: string) => {
-    const newCartProducts: CartItem[] = [];
-  
-    cartProducts.forEach(currentProduct => {
-      const copy = { ...currentProduct };
-
-      if (currentProduct.id === productId) {
-        switch (sign) {
-          case '+':
-            copy.quantity = currentProduct.quantity + 1;
-            break;
-          case '-':
-            copy.quantity = currentProduct.quantity - 1;
-            break;
-          default:
-            break;
-        }
-      }
-
-      newCartProducts.push(copy);
-    });
-
-    localStorage.setItem('wines', JSON.stringify(newCartProducts));
-    dispatch(CartActions.addProducts(newCartProducts));
-  };
-
-  const removeItem = (productId: string) => {
-    const newCartProducts: CartItem[] = [];
-  
-    cartProducts.forEach(currentProduct => {
-      const copy = { ...currentProduct };
-
-      if (currentProduct.id !== productId) {
-        newCartProducts.push(copy);
-      }
-    });
-
-    if (newCartProducts.length === 0) {
-      localStorage.removeItem('wines');
-      dispatch(CartActions.addProducts(newCartProducts));
-    } else {
-      localStorage.setItem('wines', JSON.stringify(newCartProducts));
-      dispatch(CartActions.addProducts(newCartProducts));
-    }
-  };
-
-  const totalPrice = useMemo(() => {
-    return cartProducts.reduce((accum, next) => {
-      return next.quantity * next.product.price + accum;
-    }, 0);
-  }, [cartProducts]);
-
-  const totalAmount = useMemo(() => {
-    return totalPrice + deliveryPrice + discount;
-  }, [totalPrice, deliveryPrice, discount]);
+  useEffect(() => {
+    dispatch(CartActions.getTotalPrice());
+    dispatch(CartActions.getTotalAmount());
+  }, [cartProducts, dispatch])
 
   return (
     <div className="Cart">
+      {isModalActive && <ModalWindow />}
       <div className="container">
         <h1 className="page__detailPage title Cart__title">
           Cart
@@ -97,29 +49,16 @@ export const Cart = () => {
                   </div>
                 </div>
                 <div className="Cart__quantity grid__item--8-8">
-                  <button 
-                    type="button" 
-                    className="icon Cart__icon Cart__icon--minus"
-                    onClick={() => handleCount(item.id, '-')}
-                    disabled={item.quantity === 1}
-                  >
-                    
-                  </button>
-                  <span className="Cart__number">{item.quantity}</span>
-                  <button 
-                    type="button" 
-                    className="icon Cart__icon Cart__icon--plus"
-                    onClick={() => handleCount(item.id, '+')}
-                  >
-                    
-                  </button>
+                  <CartQuantity item={item} />
                 </div>
                 <div className="Cart__price grid__item--10-11">
                   {(item.product.price * item.quantity).toFixed(2)} ₴
                   <button 
                     type="button" 
                     className="Cart__delete button"
-                    onClick={() => removeItem(item.id)}
+                    onClick={() => {
+                      dispatch(CartActions.removeItem(item.id))
+                    }}
                   >
                     Delete
                   </button>
@@ -134,7 +73,7 @@ export const Cart = () => {
                     Total
                   </div>
                   <div className="Cart__name">
-                    {totalPrice.toFixed(2)} ₴
+                    {totalPrice} ₴
                   </div>
                 </div>
                 <div className="Cart__summValues">
@@ -160,7 +99,7 @@ export const Cart = () => {
                   Total amount
                 </div>
                 <div className="Cart__totalValue">
-                  {totalAmount.toFixed(2)} ₴
+                  {totalAmount.toFixed(2)} ₴ 
                 </div>
               </div>
             </div>
@@ -178,6 +117,7 @@ export const Cart = () => {
               </Link>
               <button 
                 className="grid__item--10-12 button"
+                onClick={() => setisModalActive(true)}
               >
                 Buy
               </button>

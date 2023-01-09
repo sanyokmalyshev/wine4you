@@ -1,6 +1,6 @@
+@import "scss/mixins";
+
 .title {
   text-align: center;
-  font-size: 45px;
-  line-height: 67px;
-  font-weight: 300;
+  @include fz45-lh67-fw300;
 }

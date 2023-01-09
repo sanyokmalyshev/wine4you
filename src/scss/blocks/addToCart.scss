@@ -1,4 +1,5 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .addToCart {
   margin: 0 auto;
@@ -16,18 +17,6 @@
   }
 
   &--detail {
-    font-size: 25px;
-    line-height: 37px;
-    font-weight: 400;
-  }
-
-  &--added {
-    background-color: $headerBackground;
-    color: $buttonColor;
-
-    &:hover {
-      color: $buttonColor;
-      background-color: $buttonBack;
-    }
+    @include fz25-lh37-fw400;
   }
 }

@@ -88,12 +88,6 @@ export const DetailPage = () => {
                   <FavButton card={product} detailPage />
                 }
               </div>
-              {/* <i 
-                className={classNames(
-                  'DetailPage__icon',
-                  'icon'
-                )}
-              ></i> */}
             </div>
             <div className="DetailPage__line">
             </div>

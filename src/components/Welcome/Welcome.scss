@@ -1,4 +1,5 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .Welcome {
   &__imgContainer {
@@ -18,9 +19,7 @@
   }
 
   &__text {
-    font-size: 25px;
-    font-weight: 500;
-    line-height: 37px;
+    @include fz25-lh37-fw400;
     margin-bottom: 40px;
   }
 

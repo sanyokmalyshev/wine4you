@@ -1,0 +1,25 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.DeliveryAddress {
+  &__shipping {
+    @include fz30-lh45-fw400-grotesk;
+    margin-bottom: 24px;
+  }
+
+  &__address {
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    margin-bottom: 40px;
+  }
+
+  &__street {
+    display: flex;
+    gap: 24px;
+
+    & > div:first-child {
+      flex-shrink: 0.5;
+    }
+  }
+}

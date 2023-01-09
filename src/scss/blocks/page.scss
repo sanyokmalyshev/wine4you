@@ -1,16 +1,16 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .page {
   min-height: calc(100vh - 225px - 116px);
+
   &__section {
     margin-bottom: 150px;
   }
 
   &__title {
     text-align: center;
-    font-size: 45px;
-    line-height: 67px;
-    font-weight: 500;
+    @include fz45-lh67-fw300-grotesk;
     margin-bottom: 56px;
     color: $titleColor;
   }
@@ -33,6 +33,6 @@
   }
 
   &__detailPage {
-    margin-top: 80px;
+    padding-top: 80px;
   }
 }

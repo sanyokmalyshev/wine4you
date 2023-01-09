@@ -24,9 +24,6 @@ export const FavButton = ({ card, detailPage }: Props) => {
 
     const isAdded = favorites
       .some((prod: Product) => +prod.id === card.id);
-
-    console.log(favorites);
-    
     
       setIsAdded(isAdded);
   }, [card, favorites])

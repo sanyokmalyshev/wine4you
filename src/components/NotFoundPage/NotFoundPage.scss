@@ -1,0 +1,23 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.NotFoundPage {
+  text-align: center;
+  padding-bottom: 113px;
+  &__imgContainer {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin-bottom: 18px;
+  }
+
+  &__title {
+    @include fz45-lh67-fw300-grotesk;
+    font-weight: 700;
+    margin-bottom: 18px;
+  }
+
+  &__text {
+    @include fz25-lh37-fw500-grotesk;
+  }
+}

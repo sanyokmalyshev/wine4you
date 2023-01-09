@@ -1,4 +1,5 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .NumberField {
   &__fieldset {
@@ -7,9 +8,7 @@
     border-radius: 8px;
     border: 1px solid $titleColor;
     padding-left: 8px;
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
+    @include fz14-lh17-fw400;
   }
 
   &__searchPrice {
@@ -20,9 +19,7 @@
     border-radius: 8px;
     border: none;
     padding-bottom: 10px;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 37px;
+    @include fz20-lh37-fw500;
 
     &::-webkit-outer-spin-button,
     &::-webkit-inner-spin-button {

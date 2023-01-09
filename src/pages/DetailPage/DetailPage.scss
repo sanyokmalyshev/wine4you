@@ -1,4 +1,5 @@
 @import "../../scss/variables";
+@import "../../scss/mixins";
 
 .DetailPage {
   &__img {
@@ -7,24 +8,18 @@
   }
 
   &__title {
-    font-weight: 500;
-    font-size: 45px;
-    line-height: 67px;
+    @include fz45-lh67-fw500;
     color: $titleColor;
     font-family: 'Space Grotesk', sans-serif;
     margin-bottom: 48px;
   }
 
   &__perfectTitle {
-    font-size: 18px;
-    font-weight: 500;
-    line-height: 27px;
+    @include fz18-lh27-fw700;
   }
 
   &__perfectFor {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+    @include flex-center-between;
     margin-bottom: 60px;
   }
 
@@ -82,16 +77,12 @@
   }
 
   &__price {
-    font-size: 30px;
-    font-weight: 500;
-    line-height: 45px;
+    @include fz30-lh45-fw500;
     font-family: 'Space Grotesk', sans-serif;
   }
 
   &__bottles {
-    font-size: 16px;
-    line-height: 24px;
-    font-weight: 400;
+    @include fz16-lh24-fw400;
     margin-top: -10px;
     margin-bottom: 44px;
   }
@@ -116,14 +107,10 @@
   }
 
   &__descTitle {
-    font-size: 30px;
-    line-height: 45px;
-    font-weight: 500;
+    @include fz30-lh36-fw500;
   }
 
   &__descValue {
-    font-size: 18px;
-    line-height: 27px;
-    font-weight: 400;
+    @include fz18-lh27-fw400;
   }
 }

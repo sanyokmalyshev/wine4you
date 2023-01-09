@@ -50,12 +50,12 @@ export const CheckboxField = ({ filterValues, title, nameField }: Props) => {
         className="CheckboxField__values" 
       >
         {filterValues.map(type => (
-          <label className="CheckboxField__label" key={type}>
+          <label className="checkRadioField" key={type}>
             <input 
               type="checkbox"
               name={ nameField }
               value={ type }
-              className="CheckboxField__input"
+              className="checkRadioField__input"
               onChange={(e) => handleChangeValue(e)}
               checked={checkBoxFilters[field].includes(type)}
             />

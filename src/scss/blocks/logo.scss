@@ -1,10 +1,10 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .logo {
   &__link {
-    text-decoration: none;
     display: flex;
-    align-items: center;
+    text-decoration: none;
     color: $logoColor;
   }
 }

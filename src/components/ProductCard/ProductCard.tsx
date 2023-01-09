@@ -22,14 +22,6 @@ export const ProductCard = ({ card }: Props) => {
           />
         </Link>
         <div className="ProductCard__fav">
-          {/* <i 
-            className={classNames(
-              'ProductCard__icon',
-              'icon',
-              {'ProductCard__icon--clicked': isFavAdded}
-            )}
-            onClick={() => setIsFavAdded(!isFavAdded)}
-          ></i> */}
           <FavButton card={card} />
         </div>
         <div className="ProductCard__title">
