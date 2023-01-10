@@ -35,7 +35,7 @@ export const Search = () => {
   };
 
   return (
-    <div className='Header__search Search grid__item--2-5'>
+    <div className='Header__search Search'>
       <div className='Search__inputWrapper'>
         <i
           className='Search__searchIcon icon'

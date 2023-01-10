@@ -118,6 +118,7 @@ export const Cart = () => {
               <button
                 className='grid__item--10-12 button'
                 onClick={() => {
+                  document.body.style.overflow = 'hidden';
                   setisModalActive(true);
                 }}
               >

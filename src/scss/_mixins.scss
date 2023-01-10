@@ -4,20 +4,26 @@
   align-items: center;
 }
 
-@mixin onMobile {
+@mixin onMobile-s {
   @media (max-width: 480px) {
     @content;
   }
 }
 
 @mixin onLaptop {
-  @media (max-width: 840px) {
+  @media (max-width: 940px) {
     @content;
   }
 }
 
 @mixin onMobile {
   @media (max-width: 640px) {
+    @content;
+  }
+}
+
+@mixin max-1240 {
+  @media (max-width: 1240px) {
     @content;
   }
 }
