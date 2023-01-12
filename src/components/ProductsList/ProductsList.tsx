@@ -26,7 +26,7 @@ export const ProductsList = ({ title, products, type }: Props) => {
       </div>
       <div className='ProductsList__more'>
         <Link
-          to={`catalogue?${filterUrl}`}
+          to={`/catalogue?${filterUrl}`}
           className='ProductsList__button button'
         >
           Show me more items

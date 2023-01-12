@@ -28,8 +28,8 @@ const Header = () => {
 
         <nav className='Header__nav'>
           <div className="Header__pages">
-            <Link to="catalogue" className="link">Sommelier</Link>
-            <Link to="about" className="link">About</Link>
+            <Link to="/catalogue" className="link">Sommelier</Link>
+            <Link to="/about" className="link">About</Link>
             <div className="Header__phone">
               <a href="tel:+380967994200" className="link">
                 <i
@@ -40,7 +40,7 @@ const Header = () => {
             </div>
           </div>
           <div className="Header__features">
-            <Link to="favorites" className="link Header__iconLink">
+            <Link to="/favorites" className="link Header__iconLink">
               <i className="icon Header__icon Header__icon--favorites"></i>
               {favProducts.length > 0 && (
                 <span
@@ -51,11 +51,11 @@ const Header = () => {
               )}
               Favorites
             </Link>
-            <Link to="auth" className="link Header__iconLink">
+            {/* <Link to="/auth" className="link Header__iconLink">
               <i className="icon Header__icon Header__icon--person"></i>
               Account
-            </Link>
-            <Link to="cart" className="link Header__iconLink">
+            </Link> */}
+            <Link to="/cart" className="link Header__iconLink">
               <i className="icon Header__icon Header__icon--cart"></i>
               {cartProducts.length > 0 && (
                 <span className="Header__countItems">

@@ -3,6 +3,7 @@ import { UseFormRegister, UseFormUnregister } from 'react-hook-form';
 import { Inputs } from 'types/Inputs';
 import './DeliveryAddress.scss';
 import { TextField } from 'components/TextField.scss/TextField';
+import { InputError } from 'components/InputError/InputError';
 
 type Props = {
   register: UseFormRegister<Inputs>;
@@ -33,31 +34,53 @@ export const DeliveryAddress = ({ register, errors, unregister, touchedFields }:
         Delivery adress*
       </h3>
       <div className='DeliveryAddress__address'>
-        <TextField
-          type='text'
-          touchedFields={touched?.city}
-          errors={error?.city}
-          name='city'
-          register={register('address.courierAddress.city', { required: 'This is required' })}
-          placeholder='Enter a City'
-        />
+        <div className="textField">
+          <TextField
+            type='text'
+            touchedFields={touched?.city}
+            errors={error?.city}
+            register={register('address.courierAddress.city', {
+              required: true,
+              pattern: {
+                value: /^[a-zа-яё\s]+$/iu,
+                message: ''
+              }
+            })}
+            placeholder='Enter a City'
+          />
+          {touched?.city && error?.city?.type === 'required'
+            && <InputError message='This field is required' />
+          }
+          {touched?.city && error?.city?.type === 'pattern'
+            && <InputError message='
+            Please enter only letters' />
+          }
+        </div>
         <div className='DeliveryAddress__street'>
-          <TextField
-            type='text'
-            touchedFields={touched?.street}
-            errors={error?.street}
-            name='street'
-            register={register('address.courierAddress.street', { required: 'This is required' })}
-            placeholder='Enter a Street'
-          />
-          <TextField
-            type='text'
-            touchedFields={touched?.house}
-            errors={error?.house}
-            name='house'
-            register={register('address.courierAddress.house', { required: 'This is required' })}
-            placeholder='Enter a House'
-          />
+          <div className="textField">
+            <TextField
+              type='text'
+              touchedFields={touched?.street}
+              errors={error?.street}
+              register={register('address.courierAddress.street', { required: 'This is required' })}
+              placeholder='Enter a Street'
+            />
+            {touched?.street && error?.street?.type === 'required'
+              && <InputError message='This field is required' />
+            }
+          </div>
+          <div className="textField">
+            <TextField
+              type='text'
+              touchedFields={touched?.house}
+              errors={error?.house}
+              register={register('address.courierAddress.house', { required: 'This is required' })}
+              placeholder='Enter a House'
+            />
+            {touched?.house && error?.house?.type === 'required'
+              && <InputError message='This field is required' />
+            }
+          </div>
         </div>
       </div>
     </div>

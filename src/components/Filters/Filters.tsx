@@ -4,12 +4,16 @@ import { NumberField } from 'components/NumberField/NumberField';
 import { Product } from 'types/Product';
 import './Filters.scss';
 import { CheckboxFields } from 'types/CheckboxFields';
+import { useSearchParams } from 'react-router-dom';
 
 type Props = {
   products: Product[];
 };
 
 export const Filters = ({ products }: Props) => {
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
+  const [searchParams, setSearchParams] = useSearchParams();
+
   const allFilterTypes: CheckboxFields = useMemo(() => {
     const result: CheckboxFields = {
       wineTypeName: [],
@@ -30,9 +34,21 @@ export const Filters = ({ products }: Props) => {
     return result;
   }, [products]);
 
+  const clearAll = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+    e.preventDefault();
+    setSearchParams({ page: '1' });
+  };
+
   return (
     <div className='Filters'>
       <h4 className='filterTitle Filters__title'>Catalogue</h4>
+      <a
+        href=""
+        className=" link Filters__clear"
+        onClick={clearAll}
+      >
+        Clear all
+      </a>
       <div className='Filters__filter'>
         <CheckboxField
           filterValues={ allFilterTypes.wineTypeName }

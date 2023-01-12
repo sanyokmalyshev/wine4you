@@ -26,7 +26,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Router>
     <Routes>
-      <Route path="/" element={<App />}>
+      <Route path="/:block?" element={<App />}>
         <Route path="*" element={<NotFoundPage />} />
         <Route index element={<HomePage />} />
         <Route path="catalogue">

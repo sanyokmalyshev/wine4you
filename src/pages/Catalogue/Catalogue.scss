@@ -1,4 +1,11 @@
+@import "scss/variables";
+@import "scss/mixins";
+
 .Catalogue {
+  &__content {
+    position: relative;
+  }
+
   &__products {
     display: grid;
     grid-template-columns: repeat(3, minmax(220px, 1fr));
@@ -6,5 +13,26 @@
     gap: 40px 24px;
     margin-bottom: 85px;
     align-self: start;
+  }
+
+  &__hint {
+    width: 100%;
+    margin-bottom: 40px;
+    @include fz18-lh27-fw400;
+  }
+
+  &__hintImgCont {
+    width: 64px;
+    height: 58px;
+  }
+
+  &__hintImg {
+    position: absolute;
+    top: 30px;
+    left: -82px;
+    width: 64px;
+    height: 58px;
+    background-image: url("../../imgs/catArrow.svg");
+    background-repeat: no-repeat;
   }
 }

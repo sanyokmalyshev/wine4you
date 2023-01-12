@@ -16,7 +16,7 @@ function Welcome () {
           I&apos;m here to help you to find the most perfect wine for any occasion in your life.
         </p>
         <div className='grid'>
-          <Link to='catalogue' className='button grid__item--1-8'>
+          <Link to='/catalogue' className='button grid__item--1-8'>
             Show me more items
           </Link>
         </div>

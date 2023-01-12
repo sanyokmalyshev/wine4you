@@ -13,17 +13,18 @@
 
   &__contactsTitle {
     @include fz25-lh37-fw500-grotesk;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
   }
 
   &__contactsData {
     @include fz16-lh24-fw400;
-    margin-bottom: 8px;
+    margin-bottom: 16px;
     display: inline-block;
+    cursor: pointer;
   }
 
   &__more {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
   }
 
   &__media {

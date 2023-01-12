@@ -2,7 +2,7 @@ import './Contacts.scss';
 
 export const Contacts = () => {
   return (
-    <section className="Contacts">
+    <section className="Contacts" id="anchor">
       <h1 className="page__title Contacts__title">Contact us</h1>
       <p className="Contacts__text">Feel free to contact the locations</p>
       <div className="Contacts__info grid">

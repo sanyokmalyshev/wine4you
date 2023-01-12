@@ -172,10 +172,16 @@ export const Catalogue = () => {
           </section>
           {filteredProducts.length > 0 && (
             <>
-              <section className='Catalogue__products grid grid__item--4-12'>
-                {visibleProducts.map(card => (
-                  <ProductCard card={card} key={card.title} />
-                ))}
+              <section className='Catalogue__content grid__item--4-12'>
+                <div className="Catalogue__hint">
+                  <i className='Catalogue__hintImg'></i>
+                  Want to find wine but don’t know what to choose? That’s easy! <br />Just choose your preferences and we&apos;ll do it all for you.
+                </div>
+                <div className="Catalogue__products">
+                  {visibleProducts.map(card => (
+                    <ProductCard card={card} key={card.title} />
+                  ))}
+                </div>
               </section>
               <div className='Catalogue__pagination grid__item--4-12'>
                 {filteredProducts.length > itemsPerPage && (

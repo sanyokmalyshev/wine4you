@@ -13,6 +13,7 @@ import { getWines } from 'helpers/api';
 import { useNavigate } from 'react-router-dom';
 import { Error } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
+import { InputError } from 'components/InputError/InputError';
 
 export const Order = () => {
   // const cart = useAppSelector((state) => state.cart);
@@ -103,45 +104,93 @@ export const Order = () => {
                   <form>
                     <div className='Order__inputs'>
                       <div className='Order__nameInputs'>
-                        <TextField
-                          type='text'
-                          touchedFields={touchedFields.name}
-                          errors={errors.name}
-                          name='name'
-                          register={register('name', { required: 'This is required' })}
-                          placeholder='Enter a Name'
-                        />
-                        <TextField
-                          type='text'
-                          touchedFields={touchedFields.lastName}
-                          errors={errors.lastName}
-                          name='lastName'
-                          register={register('lastName', { required: 'This is required' })}
-                          placeholder='Enter a Last Name'
-                        />
-                      </div>
-                      <TextField
-                        type='number'
-                        touchedFields={touchedFields.phoneNumber}
-                        errors={errors.phoneNumber}
-                        name='phoneNumber'
-                        register={register('phoneNumber', { required: true })}
-                        placeholder='Enter a Phone Number'
-                      />
-                      <TextField
-                        type='email'
-                        touchedFields={touchedFields.email}
-                        errors={errors.email}
-                        name='email'
-                        placeholder='Enter an Email'
-                        register={register('email', {
-                          required: true,
-                          pattern: {
-                            value: /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                            message: 'Please enter a valid email'
+                        <div className="textField">
+                          <TextField
+                            type='text'
+                            touchedFields={touchedFields.name}
+                            errors={errors.name}
+                            register={register('name', {
+                              required: true,
+                              pattern: {
+                                value: /^[a-zа-яё\s]+$/iu,
+                                message: ''
+                              }
+                            })}
+                            placeholder='Enter a Name'
+                          />
+                          {touchedFields.name && errors?.name?.type === 'required'
+                            && <InputError message='This field is required' />
                           }
-                        })}
-                      />
+                          {touchedFields.name && errors?.name?.type === 'pattern'
+                            && <InputError message='
+                            Please enter only letters' />
+                          }
+                        </div>
+                        <div className="textField">
+                          <TextField
+                            type='text'
+                            touchedFields={touchedFields.lastName}
+                            errors={errors.lastName}
+                            register={register('lastName', {
+                              required: true,
+                              pattern: {
+                                value: /^[a-zа-яё\s]+$/iu,
+                                message: ''
+                              }
+                            })}
+                            placeholder='Enter a Last Name'
+                          />
+                          {touchedFields.lastName && errors?.lastName?.type === 'required'
+                            && <InputError message='This field is required' />
+                          }
+                          {touchedFields.lastName && errors?.lastName?.type === 'pattern'
+                            && <InputError message='
+                            Please enter only letters' />
+                          }
+                        </div>
+                      </div>
+                      <div className="textField">
+                        <TextField
+                          type='text'
+                          touchedFields={touchedFields.phoneNumber}
+                          errors={errors.phoneNumber}
+                          register={register('phoneNumber', {
+                            required: true,
+                            pattern: {
+                              value: /^\+380\d{3}\d{2}\d{2}\d{2}$/,
+                              message: ''
+                            }
+                          })}
+                          placeholder='+380931234567'
+                        />
+                        {touchedFields.phoneNumber && errors?.phoneNumber?.type === 'required'
+                          && <InputError message='This field is required' />
+                        }
+                        {touchedFields.phoneNumber && errors?.phoneNumber?.type === 'pattern'
+                          && <InputError message='Please enter a valid number' />
+                        }
+                      </div>
+                      <div className="textField">
+                        <TextField
+                          type='email'
+                          touchedFields={touchedFields.email}
+                          errors={errors.email}
+                          placeholder='Enter an Email'
+                          register={register('email', {
+                            required: true,
+                            pattern: {
+                              value: /^(([^<>()[\]\\.,;:\s@']+(\.[^<>()[\]\\.,;:\s@']+)*)|('.+'))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                              message: 'Please enter a valid email'
+                            }
+                          })}
+                        />
+                        {touchedFields.email && errors?.email?.type === 'required'
+                          && <InputError message='This field is required' />
+                        }
+                        {touchedFields.email && errors?.email?.type === 'pattern'
+                          && <InputError message='Enter a valid email' />
+                        }
+                      </div>
                     </div>
                     <div className='Order__checkboxes'>
                       <label className='checkRadioField Order__label'>
@@ -150,7 +199,7 @@ export const Order = () => {
                           className='checkRadioField__input'
                           {...register('dontCallMeBack')}
                         />
-                        Don’t need to call back
+                        Don&apos;t need to call back
                       </label>
                       <label className='checkRadioField Order__label'>
                         <input
@@ -158,7 +207,7 @@ export const Order = () => {
                           className='checkRadioField__input'
                           {...register('buyAsGift')}
                         />
-                        Buy as a guift
+                        Buy as a gift
                       </label>
                     </div>
                     <h3 className='Order__shipping'>Shipping method*</h3>

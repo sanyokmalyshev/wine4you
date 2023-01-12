@@ -3,7 +3,8 @@ import { Error } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
 import { ProductsList } from 'components/ProductsList/ProductsList';
 import Welcome from 'components/Welcome/Welcome';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
+import { useParams } from 'react-router-dom';
 import { Product } from 'types/Product';
 import { getPromotionsChampagne, getPromotionsWines } from '../helpers/api';
 
@@ -13,6 +14,8 @@ export const HomePage = () => {
   const [promoChampagne, setpromoChampagne] = useState<Product[]>([]);
   const [promoWines, setpromoWines] = useState<Product[]>([]);
   const noError = !loadingError && !isLoading;
+  const { block } = useParams();
+  const location = useRef<HTMLDivElement>(null);
 
   async function loadProducts () {
     try {
@@ -38,6 +41,18 @@ export const HomePage = () => {
       abortController.abort();
     };
   }, []);
+
+  const scrollToBlock = () => {
+    if (location.current !== null && block === 'locations') {
+      location.current.scrollIntoView({
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  useEffect(() => {
+    scrollToBlock();
+  }, [block]);
 
   return (
     <>
@@ -69,7 +84,11 @@ export const HomePage = () => {
             />
           </div>
         )}
-        <div className='page__contacts'>
+        <div
+          className='page__contacts'
+          id="contacts"
+          ref={location}
+        >
           <Contacts />
         </div>
       </div>
