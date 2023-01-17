@@ -14,7 +14,7 @@ const Header = () => {
   const favProducts = useAppSelector((state) => state.favorites.products);
 
   return (
-    <header className="Header page__header">
+    <header className="container Header page__header">
       <div className="container Header__content">
         <div className="logo">
           <Link to="/" className="logo__link">
@@ -49,7 +49,6 @@ const Header = () => {
                   {favProducts.length}
                 </span>
               )}
-              Favorites
             </Link>
             {/* <Link to="/auth" className="link Header__iconLink">
               <i className="icon Header__icon Header__icon--person"></i>
@@ -62,7 +61,6 @@ const Header = () => {
                   {cartProducts.length}
                 </span>
               )}
-              Cart
             </Link>
           </div>
         </nav>
