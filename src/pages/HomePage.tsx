@@ -56,8 +56,8 @@ export const HomePage = () => {
 
   return (
     <>
-      <Welcome />
       <div className='container'>
+        <Welcome />
         {!isLoading && loadingError && (
           <div className='page__notification'>
             <Error message='Cant load products'/>
