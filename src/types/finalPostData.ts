@@ -1,31 +1,20 @@
-import { CartItem } from './CartItem';
+export type ProductData = {
+  id: number,
+  quantity: number,
+};
 
 export interface FinalPostData {
-  cart: {
-    products: CartItem[];
-    deliveryPrice: number,
-    discount: number,
-    totalPrice: number,
-    totalAmount: number,
-  },
-  data: {
-    name: string,
-    lastName: string,
-    phoneNumber: number,
-    email: string,
-    dontCallMeBack: boolean,
-    buyAsGift: boolean,
-    shipping: string,
-    payment: string,
-    comment: string,
-    address: {
-      courierAddress?: {
-        city: string,
-        street: string,
-        house: string,
-      },
-      postalOffice?: string,
-      wine4youShop?: string,
-    },
-  }
+  itemRequestDtos: ProductData[],
+  deliveryPrice: number,
+  discount: number,
+  totalPrice: number,
+  totalAmount: number,
+  email: string,
+  shipping: string,
+  payment: string,
+  dontCallMeBack: boolean,
+  buyAsGift: boolean,
+  addressRequestDto: { city: string, street: string, apartment: string },
+  postalOffice: string,
+  wine4youShop: string
 }

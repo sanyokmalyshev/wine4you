@@ -35,7 +35,7 @@ export const Catalogue = () => {
   const max = searchParams.get('max') ?? '';
 
   const [currentPage, changeCurrentPage] = useState(page ? +page : 1);
-  const itemsPerPage = 12;
+  const itemsPerPage = 9;
 
   async function loadProducts () {
     try {
@@ -70,6 +70,7 @@ export const Catalogue = () => {
     const wineTasteName = searchParams.getAll('wineTasteName') || [];
     const eventName = searchParams.getAll('eventName') || [];
     const country = searchParams.getAll('country') || [];
+    const meal = searchParams.getAll('meal') || [];
 
     return (
       {
@@ -77,7 +78,8 @@ export const Catalogue = () => {
         wineStyleName,
         eventName,
         wineTasteName,
-        country
+        country,
+        meal
       }
     );
   }, [searchParams]);

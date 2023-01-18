@@ -16,6 +16,7 @@ export const CheckboxField = ({ filterValues, title, nameField }: Props) => {
   const eventName = searchParams.getAll('eventName');
   const wineTasteName = searchParams.getAll('wineTasteName');
   const country = searchParams.getAll('country');
+  const meal = searchParams.getAll('meal');
 
   const field = nameField as keyof CheckboxFields;
 
@@ -24,6 +25,7 @@ export const CheckboxField = ({ filterValues, title, nameField }: Props) => {
     wineStyleName,
     eventName,
     wineTasteName,
+    meal,
     country
   };
 

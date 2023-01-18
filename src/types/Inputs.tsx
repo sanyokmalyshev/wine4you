@@ -8,13 +8,11 @@ export type Inputs = {
   shipping: string,
   payment: string,
   comment: string,
-  address: {
-    courierAddress?: {
-      city: string,
-      street: string,
-      house: string,
-    },
-    postalOffice?: string,
-    wine4youShop?: string,
+  addressRequestDto: {
+    city: string,
+    street: string,
+    apartment: string,
   },
+  postalOffice: string,
+  wine4youShop: string,
 };

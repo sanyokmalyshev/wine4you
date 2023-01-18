@@ -9,14 +9,15 @@ import { useEffect, useState } from 'react';
 import { useForm, SubmitHandler, useFormState } from 'react-hook-form';
 import { Inputs } from 'types/Inputs';
 import { ShippingMethod, postalOffices, shops } from 'helpers/offices';
-import { getWines } from 'helpers/api';
 import { useNavigate } from 'react-router-dom';
 import { Error } from 'components/Error/Error';
 import { Loader } from 'components/Loader/Loader';
 import { InputError } from 'components/InputError/InputError';
+import { FinalPostData } from 'types/finalPostData';
+import { auth, sendCart } from 'helpers/api';
 
 export const Order = () => {
-  // const cart = useAppSelector((state) => state.cart);
+  const cart = useAppSelector((state) => state.cart);
   const cartProducts = useAppSelector((state) => state.cart.products);
   const { totalAmount } = useAppSelector((state) => state.cart);
   const dispatch = useAppDispatch();
@@ -52,9 +53,49 @@ export const Order = () => {
     setIsLoading(true);
     try {
       setLoadingError(false);
-      const responseWines = await getWines();
 
-      console.log(responseWines);
+      const cartData = () => {
+        return cartProducts.map(item => (
+          {
+            id: +item.id,
+            quantity: item.quantity
+          }
+        ));
+      };
+
+      const shipping = () => {
+        if (data.shipping === ShippingMethod.Courier) {
+          return 'COURIER';
+        }
+
+        if (data.shipping === ShippingMethod.PostalOffice) {
+          return 'OFFICES';
+        }
+
+        return 'MARKETPLACE';
+      };
+
+      const finalJson: FinalPostData = {
+        itemRequestDtos: cartData(),
+        deliveryPrice: cart.deliveryPrice,
+        discount: cart.discount,
+        totalPrice: cart.totalPrice,
+        totalAmount: cart.totalAmount,
+        email: '7860@gmail.com',
+        shipping: shipping(),
+        payment: data.payment,
+        dontCallMeBack: data.dontCallMeBack,
+        buyAsGift: data.buyAsGift,
+        addressRequestDto: data.addressRequestDto ? data.addressRequestDto : { city: '', street: '', apartment: '' },
+        postalOffice: data.postalOffice ? data.postalOffice : '',
+        wine4youShop: data.wine4youShop ? data.wine4youShop : ''
+      };
+
+      const authorization = await auth();
+      const token = authorization.accessToken;
+
+      await sendCart(finalJson, token);
+
       navigate('/success');
       dispatch(CartActions.clearCart());
     } catch (e) {
@@ -268,8 +309,8 @@ export const Order = () => {
                             selectName='Postal office*'
                             register={register}
                             unregister={unregister}
-                            registerName='address.postalOffice'
-                            errors={Boolean(errors.address?.postalOffice)}
+                            registerName='postalOffice'
+                            errors={Boolean(errors.postalOffice)}
                             setValue={setValue}
                             setError={setError}
                           />
@@ -287,8 +328,8 @@ export const Order = () => {
                             selectName='Choose shop'
                             register={register}
                             unregister={unregister}
-                            registerName='address.wine4youShop'
-                            errors={Boolean(errors.address?.wine4youShop)}
+                            registerName='wine4youShop'
+                            errors={Boolean(errors?.wine4youShop)}
                             setValue={setValue}
                             setError={setError}
                           />

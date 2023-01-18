@@ -18,6 +18,7 @@ export const Filters = ({ products }: Props) => {
     const result: CheckboxFields = {
       wineTypeName: [],
       wineStyleName: [],
+      meal: [],
       eventName: [],
       wineTasteName: [],
       country: []
@@ -44,7 +45,7 @@ export const Filters = ({ products }: Props) => {
       <h4 className='filterTitle Filters__title'>Catalogue</h4>
       <a
         href=""
-        className=" link Filters__clear"
+        className="link Filters__clear"
         onClick={clearAll}
       >
         Clear all
@@ -65,16 +66,16 @@ export const Filters = ({ products }: Props) => {
       </div>
       <div className='Filters__filter'>
         <CheckboxField
-          filterValues={ allFilterTypes.eventName }
-          title='Event'
-          nameField='eventName'
+          filterValues={ allFilterTypes.meal }
+          title='Meal'
+          nameField='meal'
         />
       </div>
       <div className='Filters__filter'>
         <CheckboxField
-          filterValues={ allFilterTypes.wineTasteName }
-          title='Wine Taste'
-          nameField='wineTasteName'
+          filterValues={ allFilterTypes.eventName }
+          title='Event'
+          nameField='eventName'
         />
       </div>
       <div className='Filters__filter'>
@@ -91,13 +92,6 @@ export const Filters = ({ products }: Props) => {
             nameField='max'
           />
         </div>
-      </div>
-      <div className='Filters__filter'>
-        <CheckboxField
-          filterValues={ allFilterTypes.country }
-          title='Country'
-          nameField='country'
-        />
       </div>
     </div>
   );

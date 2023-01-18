@@ -10,6 +10,7 @@ export type Product = {
   wineTypeName: string,
   wineTasteName: string,
   eventName: string,
+  meal: string,
   capacity: number,
   imageIds: string[],
   description: string

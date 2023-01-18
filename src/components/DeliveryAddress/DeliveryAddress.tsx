@@ -13,13 +13,13 @@ type Props = {
 };
 
 export const DeliveryAddress = ({ register, errors, unregister, touchedFields }: Props) => {
-  const touched = touchedFields.address?.courierAddress;
-  const error = errors.address?.courierAddress;
+  const touched = touchedFields?.addressRequestDto;
+  const error = errors?.addressRequestDto;
 
   const unreigsterCallback = useCallback(() => {
-    unregister('address.courierAddress.street');
-    unregister('address.courierAddress.city');
-    unregister('address.courierAddress.house');
+    unregister('addressRequestDto.street');
+    unregister('addressRequestDto.city');
+    unregister('addressRequestDto.apartment');
   }, [unregister]);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export const DeliveryAddress = ({ register, errors, unregister, touchedFields }:
             type='text'
             touchedFields={touched?.city}
             errors={error?.city}
-            register={register('address.courierAddress.city', {
+            register={register('addressRequestDto.city', {
               required: true,
               pattern: {
                 value: /^[a-zа-яё\s]+$/iu,
@@ -62,7 +62,7 @@ export const DeliveryAddress = ({ register, errors, unregister, touchedFields }:
               type='text'
               touchedFields={touched?.street}
               errors={error?.street}
-              register={register('address.courierAddress.street', { required: 'This is required' })}
+              register={register('addressRequestDto.street', { required: 'This is required' })}
               placeholder='Enter a Street'
             />
             {touched?.street && error?.street?.type === 'required'
@@ -74,7 +74,7 @@ export const DeliveryAddress = ({ register, errors, unregister, touchedFields }:
               type='text'
               touchedFields={touched?.house}
               errors={error?.house}
-              register={register('address.courierAddress.house', { required: 'This is required' })}
+              register={register('addressRequestDto.apartment', { required: 'This is required' })}
               placeholder='Enter a House'
             />
             {touched?.house && error?.house?.type === 'required'
