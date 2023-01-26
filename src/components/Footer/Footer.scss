@@ -1,9 +1,10 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .Footer {
   width: 100%;
   height: 225px;
-  background-color: $headerBackground;
+  background-color: rgba(217, 217, 217, 0.3);;
   padding: 24px 0;
 
   &__logo {
@@ -11,21 +12,19 @@
   }
 
   &__contactsTitle {
-    font-weight: 500;
-    font-size: 25px;
-    line-height: 37px;
-    margin-bottom: 8px;
+    @include fz25-lh37-fw500-grotesk;
+    margin-bottom: 16px;
   }
 
   &__contactsData {
-    line-height: 24px;
-    font-weight: 400;
-    margin-bottom: 8px;
+    @include fz16-lh24-fw400;
+    margin-bottom: 16px;
     display: inline-block;
+    cursor: pointer;
   }
 
   &__more {
-    margin-bottom: 22px;
+    margin-bottom: 16px;
   }
 
   &__media {

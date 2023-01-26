@@ -1,0 +1,24 @@
+@import "scss/mixins";
+
+.FavButton {
+  &__icon {
+    background-image: url('../../imgs/heart_transparent.svg');
+    transition: 120ms all ease-in-out;
+    &:hover {
+      transform: scale(1.2);
+    }
+
+    &--clicked {
+      background-image: url('../../imgs/heart.svg');
+    }
+
+    &--detail {
+      @include percent-100-100;
+      transform: scale(1.7);
+
+      &:hover {
+        transform: scale(1.9);
+      }
+    }
+  }
+}

@@ -1,0 +1,76 @@
+@import "scss/mixins";
+
+.ModalWindow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1000;
+
+  &__overlay {
+    background-color: rgba(0, 0, 0, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+  }
+
+  &__contentWrapper {
+    height: 100%;
+    overflow-x: hidden;
+    overflow-y: auto;
+    text-align: center;
+
+    &::after {
+      width: 0;
+      height: 100%;
+      content: "";
+      display: inline-block;
+      vertical-align: middle;
+    }
+  }
+
+  &__content {
+    max-width: 1030px;
+    display: inline-block;
+    vertical-align: middle;
+    background-color: #fff;
+    position: relative;
+    overflow-y: auto;
+    border-radius: 16px;
+    padding: 48px;
+    margin: 20px;
+  }
+
+  &__title {
+    @include fz35-lh52-fw400-grotesk;
+    margin-bottom: 56px;
+  }
+
+  &__warning {
+    @include fz30-lh45-fw500;
+    font-family: 'Space Grotesk', sans-serif;
+    width: 80%;
+    margin: 0 auto;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    @include fz25-lh37-fw400-grotesk;
+    width: 65%;
+    margin: 0 auto;
+    margin-bottom: 48px;
+  }
+
+  &__buttonWrapper {
+    width: 292px;
+    margin: 0 auto;
+  }
+
+  &__button {
+    @include fz25-lh37-fw400-grotesk;
+  }
+}

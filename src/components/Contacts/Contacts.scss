@@ -1,14 +1,14 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .Contacts {
   &__title {
     margin-bottom: 20px;
+    @include fz45-lh54-fw500-grotesk
   }
 
   &__text {
-    font-size: 25px;
-    line-height: 30px;
-    font-weight: 400;
+    @include fz25-lh37-fw400;
     text-align: center;
     margin-bottom: 80px;
   }
@@ -23,9 +23,7 @@
   }
 
   &__city {
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 52px;
+    @include fz35-lh52-fw700;
   }
 
   &__info {
@@ -40,16 +38,12 @@
   }
 
   &__addressTitle {
-    font-weight: 500;
-    font-size: 30px;
-    line-height: 36px;
+    @include fz30-lh36-fw500;
     margin-bottom: 8px;
   }
 
   &__addressData {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 22px;
+    @include fz18-lh27-fw400;
     color: $linkColor;
     text-decoration: none;
     margin-bottom: 4px;
@@ -60,9 +54,7 @@
   }
 
   &__hoursTitle {
-    font-size: 35px;
-    font-weight: 700;
-    line-height: 52px;
+    @include fz35-lh52-fw700;
     margin-bottom: 21px;
   }
 
@@ -83,14 +75,10 @@
   }
 
   &__day {
-    font-weight: 700;
-    font-size: 18px;
-    line-height: 27px;
+    @include fz18-lh27-fw700;
   }
 
   &__time {
-    font-weight: 400;
-    font-size: 18px;
-    line-height: 27px;
+    @include fz18-lh27-fw400;
   }
 }

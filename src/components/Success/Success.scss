@@ -1,0 +1,27 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.Success {
+  text-align: center;
+  padding-bottom: 120px;
+
+  &__imgContainer {
+    width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 24px;
+  }
+
+  &__title {
+    @include fz45-lh67-fw300-grotesk;
+    font-weight: 700;
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    margin: 0 auto;
+    width: 817px;
+    @include fz18-lh37-fw500;
+  }
+}

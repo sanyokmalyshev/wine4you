@@ -1,0 +1,54 @@
+@import "scss/variables";
+
+.Search {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: center;
+
+  &__inputWrapper {
+    position: relative;
+  }
+
+  &__input {
+    width: 292px;
+    height: 40px;
+    background-color: transparent;
+    border: 1px solid $borderColor;
+    border-radius: 8px;
+    outline: none;
+    padding-left: 48px;
+    font-size: 16px;
+    line-height: 16px;
+    background-color: $buttonColor;
+
+    &::placeholder {
+      color: $placeholderColor;
+    }
+  }
+
+  &__searchIcon {
+    top: 50%;
+    transform: translateY(-50%);
+    left: 11px;
+    transition: transform 0.2s cubic-bezier(0.25,0.72,0.51,0.96);
+    background-image: url('../../imgs/search_icon.svg');
+
+    &:hover {
+      transform: translateY(-50%) scale(1.1);
+    }
+  }
+
+  &__deleteIcon {
+    top: 50%;
+    right: 10px;
+    transform: translateY(-50%) scale(1.2);
+    transition: transform 0.2s cubic-bezier(0.25,0.72,0.51,0.96);
+    cursor: pointer;
+    background-image: url("../../imgs/Close.svg");
+
+    &:hover {
+      transform: translateY(-50%) scale(1.5);
+    }
+  }
+}

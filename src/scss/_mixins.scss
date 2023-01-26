@@ -4,14 +4,14 @@
   align-items: center;
 }
 
-@mixin onMobile {
+@mixin onMobile-s {
   @media (max-width: 480px) {
     @content;
   }
 }
 
 @mixin onLaptop {
-  @media (max-width: 840px) {
+  @media (max-width: 940px) {
     @content;
   }
 }
@@ -20,4 +20,170 @@
   @media (max-width: 640px) {
     @content;
   }
+}
+
+@mixin max-1240 {
+  @media (max-width: 1240px) {
+    @content;
+  }
+}
+
+@mixin flex-center-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+}
+
+@mixin flex-center-around {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@mixin flex-center-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+@mixin wh-20-20 {
+  width: 20px;
+  height: 20px;
+}
+
+@mixin percent-100-100 {
+  width: 100%;
+  height: 100%;
+}
+
+@mixin fz14-lh17-fw400 {
+  font-size: 14px;
+  line-height: 17px;
+  font-weight: 400;
+}
+
+@mixin fz16-lh24-fw400 {
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+}
+
+@mixin fz18-lh27-fw400 {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 400;
+}
+
+@mixin fz18-lh27-fw700 {
+  font-size: 18px;
+  line-height: 27px;
+  font-weight: 700;
+}
+
+@mixin fz18-lh37-fw500 {
+  font-size: 18px;
+  line-height: 37px;
+  font-weight: 500;
+}
+
+@mixin fz19-lh62-fw500 {
+  font-size: 19px;
+  line-height: 62px;
+  font-weight: 500;
+}
+
+@mixin fz20-lh37-fw500 {
+  font-size: 20px;
+  line-height: 37px;
+  font-weight: 500;
+}
+
+@mixin fz25-lh37-fw400 {
+  font-size: 25px;
+  line-height: 37px;
+  font-weight: 400;
+}
+
+@mixin fz25-lh37-fw400-grotesk {
+  font-size: 25px;
+  line-height: 37px;
+  font-weight: 400;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@mixin fz25-lh27-fw700 {
+  font-size: 25px;
+  line-height: 27px;
+  font-weight: 700;
+}
+
+@mixin fz25-lh37-fw500-grotesk {
+  font-size: 25px;
+  line-height: 37px;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@mixin fz30-lh36-fw500 {
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 500;
+}
+
+@mixin fz30-lh45-fw400-grotesk {
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: 400;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@mixin fz30-lh45-fw500 {
+  font-size: 30px;
+  line-height: 45px;
+  font-weight: 500;
+}
+
+
+@mixin fz35-lh52-fw700 {
+  font-size: 35px;
+  font-weight: 700;
+  line-height: 52px;
+}
+
+@mixin fz35-lh52-fw400-grotesk {
+  font-size: 35px;
+  font-weight: 400;
+  line-height: 52px;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@mixin fz45-lh54-fw500-grotesk {
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 500;
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@mixin fz45-lh67-fw300 {
+  font-size: 45px;
+  line-height: 67px;
+  font-weight: 300;
+}
+
+@mixin fz45-lh67-fw500 {
+  font-size: 45px;
+  line-height: 67px;
+  font-weight: 500;
+}
+
+@mixin fz45-lh67-fw300-grotesk {
+  font-size: 45px;
+  line-height: 67px;
+  font-weight: 300;
+  font-family: 'Space Grotesk', sans-serif;
 }

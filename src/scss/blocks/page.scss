@@ -1,17 +1,16 @@
 @import "scss/variables";
+@import "scss/mixins";
 
 .page {
   min-height: calc(100vh - 225px - 116px);
+
   &__section {
     margin-bottom: 150px;
-    margin-top: 150px;
   }
 
   &__title {
     text-align: center;
-    font-size: 45px;
-    line-height: 67px;
-    font-weight: 500;
+    @include fz45-lh67-fw300-grotesk;
     margin-bottom: 56px;
     color: $titleColor;
   }
@@ -22,5 +21,18 @@
 
   &__productsList {
     margin-bottom: 80px;
+  }
+
+  &__catalogue {
+    margin-top: 40px;
+  }
+
+  &__notification {
+    margin-top: 50px;
+    margin-bottom: 150px;
+  }
+
+  &__detailPage {
+    padding-top: 80px;
   }
 }

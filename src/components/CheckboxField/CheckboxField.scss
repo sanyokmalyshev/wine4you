@@ -1,0 +1,14 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.CheckboxField {
+  &__filterTitle {
+    margin-bottom: 16px;
+  }
+
+  &__values {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+}

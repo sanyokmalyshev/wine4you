@@ -1,0 +1,28 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.Filters {
+  &__title {
+    margin-bottom: 16px;
+  }
+
+  &__filter {
+    margin-bottom: 24px;
+  }
+
+  &__filterTitle {
+    margin-bottom: 16px;
+  }
+
+  &__inputsPrice {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__clear {
+    display: inline-block;
+    @include fz14-lh17-fw400;
+    margin-bottom: 16px;
+  }
+}

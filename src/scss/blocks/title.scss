@@ -1,0 +1,6 @@
+@import "scss/mixins";
+
+.title {
+  text-align: center;
+  @include fz45-lh67-fw300;
+}

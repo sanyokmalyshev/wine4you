@@ -1,0 +1,35 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.About {
+  padding-bottom: 88px;
+  &__title {
+    @include fz45-lh67-fw300-grotesk;
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  &__desc {
+    gap: 24px;
+    margin-bottom: 48px;
+  }
+
+  &__text {
+    @include fz18-lh27-fw400;
+  }
+
+  &__imgs {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__imgCont {
+    width: 292px;
+    height: 228px;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+  }
+}

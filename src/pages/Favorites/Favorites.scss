@@ -1,0 +1,14 @@
+.Favorites {
+  &__title {
+    margin-bottom: 48px;
+  }
+
+  &__products {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(220px, 1fr));
+    width: 100%;
+    gap: 40px 24px;
+    align-self: start;
+    padding-bottom: 85px;
+  }
+}

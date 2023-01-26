@@ -1,0 +1,5 @@
+@import "scss/mixins";
+
+.filterTitle {
+  @include fz25-lh37-fw500-grotesk;
+}

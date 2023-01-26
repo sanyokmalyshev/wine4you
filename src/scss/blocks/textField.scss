@@ -1,0 +1,26 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.textField {
+  width: 100%;
+  height: 80px;
+
+  &__input {
+    width: 100%;
+    height: 100%;
+    background-color: inherit;
+    border: 1px solid $borderInput;
+    border-radius: 16px;
+    outline: none;
+    padding: 16px;
+    @include fz18-lh27-fw400;
+
+    &--invalid {
+      border: 1px solid $errorColor;
+    }
+
+    &--valid {
+      border: 1px solid $validInput;
+    }
+  }
+}

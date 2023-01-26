@@ -1,0 +1,28 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.Pagination {
+  &__pages {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    margin-bottom: 140px;
+  }
+  &__button {
+    cursor: pointer;
+    @include fz25-lh37-fw500-grotesk;
+    width: 82px;
+    height: 82px;
+    border: 2px solid transparent;
+    outline: none;
+    background-color: $bodyBackground;
+
+    &--active {
+      border-bottom: 2px solid #000;
+    }
+
+    &:hover {
+      border-color: #000;
+    }
+  }
+}

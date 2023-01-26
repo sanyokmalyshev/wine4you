@@ -1,0 +1,116 @@
+@import "../../scss/variables";
+@import "../../scss/mixins";
+
+.DetailPage {
+  &__img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  &__title {
+    @include fz45-lh67-fw500;
+    color: $titleColor;
+    font-family: 'Space Grotesk', sans-serif;
+    margin-bottom: 48px;
+  }
+
+  &__perfectTitle {
+    @include fz18-lh27-fw700;
+  }
+
+  &__perfectFor {
+    @include flex-center-between;
+    margin-bottom: 60px;
+  }
+
+  &__buttons {
+    display: flex;
+    gap: 24px;
+  }
+
+  &__button {
+    width: 186px;
+    height: 38px;
+    background-color: $headerBackground;
+    color: $titleColor;
+    font-size: 16px;
+    border-radius: 8px;
+
+    &:hover {
+      color: #fff;
+      background-color: #7A2927;
+    }
+  }
+
+  &__buyButtons {
+    display: flex;
+    align-items: center;
+    gap: 52px;
+    margin-bottom: 40px;
+  }
+
+  &__buyButton {
+    width: 397px;
+    height: 70px;
+  }
+
+  &__favButton {
+    position: relative;
+    width: 35px;
+    height: 35px;
+  }
+
+  &__line {
+    border-bottom: 1px solid $line;
+    margin-bottom: 36px;
+  }
+
+  &__pricesDesc {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  &__priceDesc {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &__price {
+    @include fz30-lh45-fw500;
+    font-family: 'Space Grotesk', sans-serif;
+  }
+
+  &__bottles {
+    @include fz16-lh24-fw400;
+    margin-top: -10px;
+    margin-bottom: 44px;
+  }
+
+  &__descBlocks {
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+    margin-bottom: 83px;
+  }
+
+  &__descBlock {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    column-gap: 24px;
+  }
+
+  &__descTitleValue {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+  }
+
+  &__descTitle {
+    @include fz30-lh36-fw500;
+  }
+
+  &__descValue {
+    @include fz18-lh27-fw400;
+  }
+}

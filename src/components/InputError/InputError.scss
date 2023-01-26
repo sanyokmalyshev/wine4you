@@ -1,0 +1,20 @@
+@import "scss/variables";
+
+.InputError {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 5px;
+  color: $errorColor;
+
+  &__invalidIcon {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: none;
+    position: static;
+    background-color: inherit;
+    background-image: url("../../imgs/invalid_form.svg");
+    transform: scale(1.2);
+  }
+}

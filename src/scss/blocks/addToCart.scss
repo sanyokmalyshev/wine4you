@@ -1,0 +1,22 @@
+@import "scss/variables";
+@import "scss/mixins";
+
+.addToCart {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  background-color: $buttonBack;
+
+  &--more {
+    background-color: $headerBackground;
+    margin: 0 auto;
+    &:hover {
+      background-color: $buttonBack;
+      color: $buttonColor;
+    }
+  }
+
+  &--detail {
+    @include fz25-lh37-fw400;
+  }
+}
