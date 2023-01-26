@@ -1,4 +1,4 @@
-## Team project with BE, QA, UI/UX
+## Team project with BackEnd, QA, UI/UX
 ## Technologies used in the project
 - HTML5, CSS3, Sass (SCSS) 
 - React, 
